@@ -12,6 +12,13 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <% if user_signed_in? %>
+      <p>Добро пожаловать, <%= current_user.name %>. Должность - <%= current_user.office %></p>
+      <%= link_to "Выход", destroy_user_session_path, method: :delete %>
+    <% end %>
+
+    <%= link_to 'Пользователи', users_path %>
+
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,11 @@
+<% if current_user.admin? %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.office %></td>
+    <td><%= link_to 'Показать', user %></td>
+    <td><%= link_to 'Удалить', user, method: :delete, data: { confirm: 'Вы уверены?'}%></td>
+  </tr>
+<% else %>
+  <p>Все в сад</p>
+<% end %>

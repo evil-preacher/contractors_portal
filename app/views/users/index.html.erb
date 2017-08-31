@@ -1,0 +1,17 @@
+<h1>Пользователи</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Имя</th>
+      <th>e-mail</th>
+      <th>Должность</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Домой", root_path %>
+<br>
+<%= link_to "Создать пользователя", new_user_path %>

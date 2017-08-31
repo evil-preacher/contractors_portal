@@ -1,0 +1,38 @@
+<%= form_for user do |f| %>
+  <%= render 'common/errors', resource: user %>
+  <form>
+    <div class="form-group">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :office %><br />
+      <%= f.text_field :office %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+
+    <%= f.hidden_field :confirmed_at, :value => Time.now + 30 %>
+
+    <div class="actions">
+      <%= f.submit "Создать", class: 'btn btn-primary'%>
+    </div>
+  </form>
+<% end %>
