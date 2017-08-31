@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: :show
+
+  authorize_resource
+
   def index
     @users = User.where(admin: false)
   end
