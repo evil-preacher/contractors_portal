@@ -2,6 +2,7 @@ class CompaniesController < ApplicationController
   authorize_resource
 
   before_action :set_company, except: [:new, :create]
+  after_action  :add_id_to_user, only: :create
 
   def show; end
 
@@ -33,6 +34,11 @@ class CompaniesController < ApplicationController
 
   def set_company
     @company = Company.find(params[:id])
+  end
+
+  def add_id_to_user
+    current_user.company_id = @company.id
+    current_user.save
   end
 
   def company_params
