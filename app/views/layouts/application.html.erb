@@ -12,13 +12,18 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+
     <% if user_signed_in? %>
+      <% if current_user.company.nil? %>
+        <p><strong>Вы не можете продолжать работу, сначала нужно заполнить профиль компании!</strong></p>
+      <% end %>
       <p>Добро пожаловать, <%= current_user.name %>. Должность - <%= current_user.office %></p>
       <%= link_to "Выход", destroy_user_session_path, method: :delete %>
     <% end %>
     <% if can?(:manage, User) %>
       <%= link_to 'Пользователи', users_path %>
     <% end %>
+
 
     <%= yield %>
   </body>

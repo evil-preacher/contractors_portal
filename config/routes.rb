@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :path_prefix => 'my'
 
   resources :users
+  resources :companies
   get 'home' => 'home#show'
 
   root 'home#show'
