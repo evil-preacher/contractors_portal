@@ -10,7 +10,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = current_user.company.new(company_params)
+    @company = current_user.build_company(company_params)
 
     if @company.save
       redirect_to root_path
