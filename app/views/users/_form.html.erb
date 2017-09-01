@@ -30,7 +30,7 @@
     </div>
 
     <%= f.hidden_field :confirmed_at, :value => Time.now + 30 %>
-    <%= f.hidden_field :company_id, :value => current_user.company_id %>
+    <%= f.hidden_field :company_id, :value => current_user.company.id %>
 
     <div class="actions">
       <%= f.submit "Создать", class: 'btn btn-primary'%>
