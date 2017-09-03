@@ -1,0 +1,15 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Static version of css will use Glyphicons sprites by default
+  =require twitter-bootstrap-static/sprites
+*/
+
+.section > .unit {
+  border-radius: 0;
+  min-width: 200px;
+}
+
+i {
+  color: #076607;
+}

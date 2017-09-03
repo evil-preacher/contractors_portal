@@ -2,23 +2,23 @@
   <%= render 'common/errors', resource: company %>
   <form>
     <div class="form-group">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, autofocus: true %>
+      <%= f.label :name, "Название компании" %><br />
+      <%= f.text_field :name, autofocus: true, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= f.label :bin %><br />
-      <%= f.text_field :bin %>
+      <%= f.label :bin, "БИН" %><br />
+      <%= f.text_field :bin, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= f.label :phone %><br />
-      <%= f.text_field :phone %>
+      <%= f.label :phone, "Телефон" %><br />
+      <%= f.text_field :phone, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= f.label :address %><br />
-      <%= f.text_area :address %>
+      <%= f.label :address, "Адрес" %><br />
+      <%= f.text_area :address, class: "form-control" %>
     </div>
 
     <div class="actions">

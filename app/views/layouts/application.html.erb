@@ -1,30 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>ContractorsApp</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "ContractorsApp" %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
+    <%= javascript_include_tag "application" %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+    <![endif]-->
   </head>
-
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
+    <%= render 'common/navbar' %>
 
-    <% if user_signed_in? %>
-      <% if current_user.company.nil? %>
-        <p><strong>Вы не можете продолжать работу, сначала нужно заполнить профиль компании!</strong></p>
-      <% end %>
-      <p>Добро пожаловать, <%= current_user.name %>. Должность - <%= current_user.office %></p>
-      <%= link_to "Выход", destroy_user_session_path, method: :delete %>
-    <% end %>
-    <% if can?(:manage, User) %>
-      <%= link_to 'Пользователи', users_path %>
-    <% end %>
+    <div class="container">
+      <div class="row">
+        <%= render "common/sections" %>
+        <div class="col-lg-7">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+        <div class="col-lg-2">
+          <div class="well sidebar-nav">
+            <h3>Графики</h3>
+            <ul class="nav nav-list">
+              <li class="nav-header">Графики</li>
+              <li><%= link_to "Заявок за последнюю неделю", "/path1"  %></li>
+              <li><%= link_to "ТОП-10 товаров", "/path2"  %></li>
+              <li><%= link_to "Ещё какая-нибудь хренотень", "/path3"  %></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+      </div><!--/row-->
 
+      <footer>
+        <p>&copy; <%= Date.current.year %> Павел Пухтий</p>
+      </footer>
 
-    <%= yield %>
+    </div> <!-- /container -->
+
   </body>
 </html>
