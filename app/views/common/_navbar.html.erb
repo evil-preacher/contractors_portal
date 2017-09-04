@@ -9,8 +9,11 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
+
             <% if user_signed_in? %>
+              <% if current_user.company.nil? %>
+                <li><%= link_to "Создать профиль компании", new_company_path %></li>
+              <% end %>
               <li><%= link_to "Выход", destroy_user_session_path, method: :delete %></li>
             <% end %>
           </ul>

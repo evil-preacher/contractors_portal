@@ -7,7 +7,7 @@
 
 .section > .unit {
   border-radius: 0;
-  min-width: 200px;
+  margin: 0;
 }
 
 i {

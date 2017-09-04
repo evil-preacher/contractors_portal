@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   authorize_resource
 
   def index
-    @users = User.where(admin: false)
+    @users = current_user.company.users.where(admin: false)
   end
 
   def new
