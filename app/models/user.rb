@@ -9,4 +9,12 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+
+  after_create :send_notification_create
+
+  private
+
+  def send_notification_create
+    UsersMailer.create_user(self).deliver_now
+  end
 end
