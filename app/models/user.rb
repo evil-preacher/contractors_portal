@@ -15,6 +15,8 @@ class User < ApplicationRecord
   private
 
   def send_notification_create
-    UsersMailer.create_user(self).deliver_now
+    unless self.admin?
+      UsersMailer.create_user(self).deliver_now
+    end
   end
 end
