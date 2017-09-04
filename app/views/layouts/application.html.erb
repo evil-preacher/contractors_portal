@@ -31,17 +31,7 @@
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <div class="col-lg-2">
-          <div class="well sidebar-nav">
-            <h3>Графики</h3>
-            <ul class="nav nav-list">
-              <li class="nav-header">Графики</li>
-              <li><%= link_to "Заявок за последнюю неделю", "/path1"  %></li>
-              <li><%= link_to "ТОП-10 товаров", "/path2"  %></li>
-              <li><%= link_to "Ещё какая-нибудь хренотень", "/path3"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+        <%= render 'common/sidebar' %>
       </div><!--/row-->
 
       <footer>
