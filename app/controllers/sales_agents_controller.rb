@@ -1,7 +1,7 @@
 class SalesAgentsController < ApplicationController
   authorize_resource
 
-  before_action :set_sales_agent, only: [:edit, :destroy]
+  before_action :set_sales_agent, only: [:edit, :update, :destroy]
 
   def index
     @sales_agents = current_user.company.sales_agents
@@ -24,7 +24,7 @@ class SalesAgentsController < ApplicationController
   def edit; end
 
   def update
-    if @sales_agent.update
+    if @sales_agent.update(sales_agent_params)
       redirect_to sales_agents_path
     else
       render :edit

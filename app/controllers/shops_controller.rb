@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
   authorize_resource
 
-  before_action :set_shop, only: [:edit, :destroy]
+  before_action :set_shop, only: [:edit, :update, :destroy]
 
   def index
     @shops = current_user.company.shops
@@ -24,7 +24,7 @@ class ShopsController < ApplicationController
   def edit; end
 
   def update
-    if @shop.update
+    if @shop.update(shop_params)
       redirect_to shops_path
     else
       render :edit
