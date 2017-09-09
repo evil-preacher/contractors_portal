@@ -1,0 +1,19 @@
+<h1><i class="fa fa-shopping-basket" aria-hidden="true"></i> Магазины</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>КУС</th>
+      <th>Название</th>
+      <th>Адрес</th>
+      <th>Широта</th>
+      <th>Долгота</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @shops %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Домой", root_path %>
+<br>
+<%= link_to "Добавить магазин", new_shop_path %>

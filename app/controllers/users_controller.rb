@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: :show
-
   authorize_resource
+
+  before_action :set_user, only: [:show, :destroy]
 
   def index
     @users = current_user.company.users.where(admin: false)
@@ -20,6 +20,12 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @user.destroy
+    redirect_to users_path
+  end
+
 
   private
 

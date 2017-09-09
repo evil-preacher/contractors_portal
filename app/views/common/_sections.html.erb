@@ -4,7 +4,7 @@
       <%= link_to 'Пользователи', users_path, class: "btn btn-success btn-lg btn-block unit" %>
     <% end %>
     <%= link_to 'Товары', users_path, class: "btn btn-success btn-lg btn-block unit" %>
-    <%= link_to 'Магазины', users_path, class: "btn btn-success btn-lg btn-block unit" %>
+    <%= link_to 'Магазины', shops_path, class: "btn btn-success btn-lg btn-block unit" %>
     <%= link_to 'Торговые агенты', users_path, class: "btn btn-success btn-lg btn-block unit" %>
     <% if current_user.company.present? %>
       <%= link_to 'Профиль компании', company_path(current_user.company), class: "btn btn-success btn-lg btn-block unit" %>
