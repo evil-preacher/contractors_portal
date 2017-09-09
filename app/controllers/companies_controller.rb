@@ -23,7 +23,7 @@ class CompaniesController < ApplicationController
   def edit; end
 
   def update
-    if @company.update
+    if @company.update(company_params)
       redirect_to root_path
     else
       render :edit

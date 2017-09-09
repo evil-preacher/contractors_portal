@@ -4,6 +4,6 @@
   <td><%= shop.address %></td>
   <td><%= shop.longitude %></td>
   <td><%= shop.latitude %></td>
-  <td><%= link_to 'Редактировать', shop, class: "btn btn-info" %></td>
+  <td><%= link_to 'Редактировать', edit_shop_path(shop), class: "btn btn-info" %></td>
   <td><%= link_to 'Удалить', shop, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-danger" %></td>
 </tr>
