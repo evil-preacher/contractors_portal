@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :companies
   resources :shops
   resources :sales_agents
+  resources :price_types
   get 'home' => 'home#show'
 
   root 'home#show'

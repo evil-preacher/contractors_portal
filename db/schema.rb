@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20170909100856) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_price_types_on_company_id"
   end
 
   create_table "sales_agents", force: :cascade do |t|
