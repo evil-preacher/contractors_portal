@@ -44,6 +44,6 @@ class ShopsController < ApplicationController
 
   def shop_params
     params.require(:shop).permit(:title, :address, :longitude, :latitude,
-                                 :accounting_system_code)
+                                 :accounting_system_code, :price_type_id)
   end
 end
