@@ -1,0 +1,7 @@
+<tr>
+  <td><%= sales_agent.accounting_system_code %></td>
+  <td><%= sales_agent.IMEI %></td>
+  <td><%= sales_agent.name %></td>
+  <td><%= link_to 'Редактировать', sales_agent, class: "btn btn-info" %></td>
+  <td><%= link_to 'Удалить', sales_agent, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-danger" %></td>
+</tr>

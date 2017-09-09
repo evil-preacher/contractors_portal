@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :companies
   resources :shops
+  resources :sales_agents
   get 'home' => 'home#show'
 
   root 'home#show'

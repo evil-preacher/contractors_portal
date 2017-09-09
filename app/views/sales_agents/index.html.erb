@@ -1,0 +1,17 @@
+<h1><i class="fa fa-address-card" aria-hidden="true"></i> Торговые агенты</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>КУС</th>
+      <th>IMEI</th>
+      <th>ФИО</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @sales_agents %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Домой", root_path %>
+<br>
+<%= link_to "Добавить агента", new_sales_agent_path %>
