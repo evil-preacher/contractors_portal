@@ -3,5 +3,6 @@ class SalesAgent < ApplicationRecord
 
   validates :accounting_system_code, presence: true, uniqueness: true,
                                      length: { maximum: 20 }
-  validates :IMEI, presence: true, uniqueness: true, length: { is: 15, message: "дожен быть 15 символов"  }
+  validates :IMEI, presence: true, uniqueness: true,
+                   length: { is: 15, message: "дожен быть 15 символов"  }
 end
