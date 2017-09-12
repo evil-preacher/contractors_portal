@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170909100856) do
+ActiveRecord::Schema.define(version: 20170912052047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,38 @@ ActiveRecord::Schema.define(version: 20170909100856) do
     t.datetime "updated_at", null: false
     t.bigint "company_id"
     t.index ["company_id"], name: "index_price_types_on_company_id"
+  end
+
+  create_table "product_groups", force: :cascade do |t|
+    t.string "title", null: false
+    t.bigint "product_type_id"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_product_groups_on_company_id"
+    t.index ["product_type_id"], name: "index_product_groups_on_product_type_id"
+  end
+
+  create_table "product_types", force: :cascade do |t|
+    t.string "title", null: false
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_product_types_on_company_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "accounting_system_code", null: false
+    t.string "title", null: false
+    t.string "barcode", null: false
+    t.bigint "product_type_id"
+    t.bigint "product_group_id"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_products_on_company_id"
+    t.index ["product_group_id"], name: "index_products_on_product_group_id"
+    t.index ["product_type_id"], name: "index_products_on_product_type_id"
   end
 
   create_table "sales_agents", force: :cascade do |t|
