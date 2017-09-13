@@ -1,0 +1,30 @@
+<%= form_for product do |f| %>
+  <%= render 'common/errors', resource: product %>
+  <form>
+    <div class="form-group">
+      <%= f.label :accounting_system_code, "Код учётной системы" %><br />
+      <%= f.text_field :accounting_system_code, autofocus: true, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :title, "Название товара" %><br />
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :barcode, "Штрихкод" %><br />
+      <%= f.text_field :barcode, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :product_group_id, "Группа товаров" %><br />
+      <%= f.collection_select :product_group_id, ProductGroup.where(company_id: current_user.company_id), :id, :title, {}, class: "form-control" %>
+    </div>
+
+    <%= f.hidden_field :company_id, :value => current_user.company.id %>
+
+    <div class="actions">
+      <%= f.submit "Создать", class: 'btn btn-primary'%>
+    </div>
+  </form>
+<% end %>

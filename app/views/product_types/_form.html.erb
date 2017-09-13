@@ -1,0 +1,13 @@
+<%= form_for product_type do |f| %>
+  <%= render 'common/errors', resource: product_type %>
+  <form>
+    <div class="form-group">
+      <%= f.label :title, "Название" %><br />
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Создать", class: 'btn btn-primary'%>
+    </div>
+  </form>
+<% end %>

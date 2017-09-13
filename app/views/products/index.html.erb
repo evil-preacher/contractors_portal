@@ -1,0 +1,19 @@
+<h1><i class="fa fa-cubes" aria-hidden="true"></i> Товары</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>КУС</th>
+      <th>Название</th>
+      <th>Штрихкод</th>
+      <th>Группа</th>
+      <th>Время создания</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @products %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Домой", root_path %>
+<br>
+<%= link_to "Добавить товар", new_product_path %>
