@@ -13,3 +13,7 @@
 i {
   color: #076607;
 }
+
+.list-inline > li {
+  float: left;
+}

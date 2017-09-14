@@ -27,11 +27,12 @@
     <div class="container">
       <div class="row">
         <%= render "common/sections" %>
+        <%= render 'common/sidebar' %>
         <div class="col-lg-7">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <%= render 'common/sidebar' %>
+
       </div><!--/row-->
 
       <footer>
