@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :product_types
   resources :product_groups
   resources :products
+  resources :brands
   get 'home' => 'home#show'
 
   root 'home#show'
