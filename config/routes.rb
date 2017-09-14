@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :product_groups
   resources :products
   resources :brands
+  resources :searches
   get 'home' => 'home#show'
 
   root 'home#show'

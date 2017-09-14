@@ -1,0 +1,8 @@
+<h1>Результаты поиска</h1>
+<% if @search.products.present? %>
+  <%= render @search.products %>
+<% else %>
+  <p>Ничего не найдено</p>
+<% end %>
+
+<%= link_to 'Назад', products_path %>
