@@ -1,8 +1,23 @@
-<h1>Результаты поиска</h1>
-<% if @search.products.present? %>
-  <%= render @search.products %>
-<% else %>
-  <p>Ничего не найдено</p>
-<% end %>
-
-<%= link_to 'Назад', products_path %>
+<h1><i class="fa fa-search" aria-hidden="true"></i> Результаты поиска</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>КУС</th>
+      <th>Название</th>
+      <th>Штрихкод</th>
+      <th>Группа</th>
+      <th>Бренд</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @search.products.present? %>
+      <%= render @search.products %>
+    <% else %>
+      <p>Ничего не найдено</p>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Домой", root_path %>
+<br>
+<%= link_to "Добавить товар", new_product_path %>

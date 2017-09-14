@@ -17,3 +17,7 @@ i {
 .list-inline > li {
   float: left;
 }
+
+.graph-links {
+  border-bottom: 2px solid #dcdcdc;
+}
