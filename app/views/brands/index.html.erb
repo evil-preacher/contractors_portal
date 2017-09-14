@@ -1,0 +1,15 @@
+<h1><i class="fa fa-exchange" aria-hidden="true"></i> Бренды</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Название</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @brands %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Домой", root_path %>
+<br>
+<%= link_to "Добавить бренд", new_brand_path %>

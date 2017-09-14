@@ -1,0 +1,13 @@
+<%= form_for brand do |f| %>
+  <%= render 'common/errors', resource: brand %>
+  <form>
+    <div class="form-group">
+      <%= f.label :title, "Название" %><br />
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "#{brand.new_record? ? 'Создать' : 'Изменить'}", class: 'btn btn-primary'%>
+    </div>
+  </form>
+<% end %>

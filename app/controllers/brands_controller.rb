@@ -12,7 +12,7 @@ class BrandsController < ApplicationController
   end
 
   def create
-    @brand = current_user.company.brand.new(brand_params)
+    @brand = current_user.company.brands.new(brand_params)
 
     if @brand.save
       redirect_to brands_path
