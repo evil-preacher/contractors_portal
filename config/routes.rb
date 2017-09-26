@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :products
   resources :brands
   resources :load_events, only: [:index, :show, :new, :create]
+  resources :remainders
   resources :searches
   get 'home' => 'home#show'
 

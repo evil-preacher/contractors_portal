@@ -1,0 +1,9 @@
+<p><strong>Загрузка данных</strong></p>
+<% if @load_event.remainders.present? %>
+  <% @load_event.remainders each do |remainder| %>
+    <%= remainder.product.title %>
+    <%= remainder.remainder %>
+  <% end %>
+<% end %>
+
+<%= link_to 'Домой', root_path %>

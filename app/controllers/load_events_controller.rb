@@ -24,6 +24,6 @@ class LoadEventsController < ApplicationController
   end
 
   def set_load_event
-    @load_event = LoadEvent.find(params: [:id])
+    @load_event = LoadEvent.find(params[:id])
   end
 end

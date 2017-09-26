@@ -1,0 +1,16 @@
+<h1><i class="fa fa-exchange" aria-hidden="true"></i> Остатки</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Товар</th>
+      <th>Остаток</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @remainders %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Домой", root_path %>
+<br>
+<%= link_to "Добавить остатки", new_remainder_path %>
