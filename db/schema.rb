@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926072444) do
+ActiveRecord::Schema.define(version: 20170926080608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,18 @@ ActiveRecord::Schema.define(version: 20170926072444) do
     t.index ["company_id"], name: "index_products_on_company_id"
     t.index ["product_group_id"], name: "index_products_on_product_group_id"
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
+  end
+
+  create_table "remainders", force: :cascade do |t|
+    t.decimal "remainder", precision: 17, scale: 2
+    t.bigint "company_id"
+    t.bigint "load_event_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_remainders_on_company_id"
+    t.index ["load_event_id"], name: "index_remainders_on_load_event_id"
+    t.index ["product_id"], name: "index_remainders_on_product_id"
   end
 
   create_table "sales_agents", force: :cascade do |t|

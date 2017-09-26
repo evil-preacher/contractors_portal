@@ -2,6 +2,7 @@ class Company < ApplicationRecord
   has_many :users
   has_many :shops
   has_many :brands
+  has_many :remainders
   has_many :sales_agents
   has_many :price_types
   has_many :load_events
