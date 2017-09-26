@@ -1,10 +1,8 @@
 class RemaindersController < ApplicationController
   authorize_resource
 
-  before_action :create_load_event, only: :create
-
   def index
-    @remainders = current_user.load_events.remainders
+    @remainders = current_user.company.remainders
   end
 
   def new
@@ -12,7 +10,9 @@ class RemaindersController < ApplicationController
   end
 
   def create
-    @remainder = @load_event.remainders.new(remainder_params)
+    @remainder = current_user.company.remainders.new(remainder_params)
+    @load_event = current_user.company.load_events.create(loading: DateTime.now)
+    @remainder.load_event_id = @load_event.id
 
     if @remainder.save
       redirect_to remainders_path
@@ -24,10 +24,6 @@ class RemaindersController < ApplicationController
   private
 
   def remainder_params
-    params.require(:remainder).permit(:remainder, :load_event_id, :product_id)
-  end
-
-  def create_load_event
-    @load_event = current_user.company.load_events.create(loading: DateTime.now)
+    params.require(:remainder).permit(:remainder, :load_event_id, :product_id, :company_id)
   end
 end

@@ -1,9 +1,11 @@
 <p><strong>Загрузка данных</strong></p>
 <% if @load_event.remainders.present? %>
-  <% @load_event.remainders each do |remainder| %>
-    <%= remainder.product.title %>
-    <%= remainder.remainder %>
+  <h3>Остатки:</h3>
+  <% @load_event.remainders.each do |remainder| %>
+   <p>Название: <%= remainder.product.title %>, Количество: <%= remainder.remainder %></p>
   <% end %>
 <% end %>
-
+<br>
+<%= link_to 'Назад', load_events_path %>
+<br>
 <%= link_to 'Домой', root_path %>
