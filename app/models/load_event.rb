@@ -1,0 +1,2 @@
+class LoadEvent < ApplicationRecord
+end
