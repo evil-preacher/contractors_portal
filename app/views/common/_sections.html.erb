@@ -1,8 +1,5 @@
 <div class="col-lg-3 section">
   <% if user_signed_in? %>
-    <% if can? :manage, User %>
-      <%= link_to 'Пользователи', users_path, class: "btn btn-success btn-lg btn-block unit" %>
-    <% end %>
     <%= link_to 'Категории товаров', product_types_path, class: "btn btn-success btn-lg btn-block unit" %>
     <%= link_to 'Группы товаров', product_groups_path, class: "btn btn-success btn-lg btn-block unit" %>
     <%= link_to 'Бренды', brands_path, class: "btn btn-success btn-lg btn-block unit" %>
@@ -11,9 +8,5 @@
     <%= link_to 'Остатки', remainders_path, class: "btn btn-success btn-lg btn-block unit" %>
     <%= link_to 'Магазины', shops_path, class: "btn btn-success btn-lg btn-block unit" %>
     <%= link_to 'Типы цен', price_types_path, class: "btn btn-success btn-lg btn-block unit" %>
-    <%= link_to 'Торговые агенты', sales_agents_path, class: "btn btn-success btn-lg btn-block unit" %>
-    <% if current_user.company.present? %>
-      <%= link_to 'Профиль компании', company_path(current_user.company), class: "btn btn-success btn-lg btn-block unit" %>
-    <% end %>
   <% end %>
 </div>

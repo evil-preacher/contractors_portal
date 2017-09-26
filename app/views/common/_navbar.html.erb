@@ -8,12 +8,16 @@
         <a class="navbar-brand" href="#">ContractorsApp</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-
             <% if user_signed_in? %>
               <% if current_user.company.nil? %>
                 <li><%= link_to "Создать профиль компании", new_company_path %></li>
+              <% else %>
+                <li><%= link_to 'Профиль компании', company_path(current_user.company) %></li>
               <% end %>
+              <% if can? :manage, User %>
+                <li><%= link_to "Пользователи", users_path  %></li>
+              <% end %>
+              <li><%= link_to 'Торговые агенты', sales_agents_path %></li>
               <li><%= link_to "Выход", destroy_user_session_path, method: :delete %></li>
             <% end %>
           </ul>

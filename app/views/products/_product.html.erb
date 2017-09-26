@@ -8,6 +8,11 @@
   <% else %>
     <td>Не присвоен</td>
   <% end %>
+  <% if product.remainders.present? %>
+    <td><%= product.remainders.last.remainder %></td>
+  <% else %>
+    <td>0</td>
+  <% end %>
   <td><%= link_to 'Показать', product_path(product), class: "btn btn-default" %></td>
   <td><%= link_to 'Изменить', edit_product_path(product), class: "btn btn-info" %></td>
   <td><%= link_to 'Удалить', product, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-danger" %></td>
