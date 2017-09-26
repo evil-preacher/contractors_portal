@@ -4,6 +4,7 @@ class Company < ApplicationRecord
   has_many :brands
   has_many :sales_agents
   has_many :price_types
+  has_many :load_events
   has_many :product_types
   has_many :product_groups, through: :product_types
   has_many :products, through: :product_types
