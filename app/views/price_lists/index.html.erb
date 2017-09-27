@@ -1,0 +1,18 @@
+<h1><i class="fa fa-cubes" aria-hidden="true"></i> Цены</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Тип цен</th>
+      <th>Товар</th>
+      <th>Цена</th>
+      <th>Дата загрузки</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @price_lists %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Домой", root_path %>
+<br>
+<%= link_to "Добавить цену", new_price_list_path %>

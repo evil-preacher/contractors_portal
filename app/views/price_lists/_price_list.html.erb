@@ -1,0 +1,12 @@
+<tr>
+  <td><%= price_list.price_type.title %></td>
+  <td><%= price_list.product.title %></td>
+  <td><%= price_list.price %></td>
+  <% if price_list.load_event.present? %>
+    <td><%= price_list.load_event.loading %></td>
+  <% else %>
+    <td>Что-то наебнулось</td>
+  <% end %>
+  <td><%= link_to 'Изменить', edit_price_list_path(price_list), class: "btn btn-info" %></td>
+  <td><%= link_to 'Удалить', price_list, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-danger" %></td>
+</tr>

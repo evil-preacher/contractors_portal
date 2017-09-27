@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :companies
   resources :shops
   resources :sales_agents
+  resources :price_lists
   resources :price_types
   resources :product_types
   resources :product_groups

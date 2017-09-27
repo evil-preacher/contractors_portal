@@ -1,0 +1,23 @@
+<%= form_for price_list do |f| %>
+  <%= render 'common/errors', resource: price_list %>
+  <form>
+    <div class="form-group">
+      <%= f.label :product_id, "Товар" %><br />
+      <%= f.collection_select :product_id, Product.where(company_id: current_user.company_id), :id, :title, {}, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :price_type_id, "Тип цен" %><br />
+      <%= f.collection_select :price_type_id, PriceType.where(company_id: current_user.company_id), :id, :title, {}, class: "form-control" %>
+    </div>
+
+        <div class="form-group">
+      <%= f.label :price, "Цена" %><br />
+      <%= f.number_field :price, step: 0.01, class: "form-control text-right", placeholder: '0,00' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "#{price_list.new_record? ? 'Создать' : 'Изменить'}", class: 'btn btn-primary'%>
+    </div>
+  </form>
+<% end %>
