@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170927073450) do
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
-    t.string "title"
+    t.string "title", limit: 20, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "company_id"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170927073450) do
 
   create_table "load_events", force: :cascade do |t|
     t.bigint "company_id"
-    t.datetime "loading"
+    t.datetime "loading", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_load_events_on_company_id"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170927073450) do
     t.bigint "price_type_id"
     t.bigint "product_id"
     t.bigint "load_event_id"
-    t.decimal "price", precision: 17, scale: 2
+    t.decimal "price", precision: 17, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_price_lists_on_company_id"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20170927073450) do
   end
 
   create_table "price_types", force: :cascade do |t|
-    t.string "accounting_system_code", null: false
-    t.string "title", null: false
+    t.string "accounting_system_code", limit: 20, null: false
+    t.string "title", limit: 50, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "company_id"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20170927073450) do
   end
 
   create_table "product_groups", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title", limit: 50, null: false
     t.bigint "product_type_id"
     t.bigint "company_id"
     t.datetime "created_at", null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20170927073450) do
   end
 
   create_table "product_types", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title", limit: 50, null: false
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,9 +82,9 @@ ActiveRecord::Schema.define(version: 20170927073450) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "accounting_system_code", null: false
-    t.string "title", null: false
-    t.string "barcode", null: false
+    t.string "accounting_system_code", limit: 20, null: false
+    t.string "title", limit: 50, null: false
+    t.string "barcode", limit: 20, null: false
     t.bigint "product_type_id"
     t.bigint "product_group_id"
     t.bigint "company_id"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20170927073450) do
   end
 
   create_table "remainders", force: :cascade do |t|
-    t.decimal "remainder", precision: 17, scale: 2
+    t.decimal "remainder", precision: 17, scale: 3, null: false
     t.bigint "company_id"
     t.bigint "load_event_id"
     t.bigint "product_id"
@@ -110,9 +110,9 @@ ActiveRecord::Schema.define(version: 20170927073450) do
   end
 
   create_table "sales_agents", force: :cascade do |t|
-    t.string "accounting_system_code", null: false
-    t.string "IMEI", null: false
-    t.string "name", null: false
+    t.string "accounting_system_code", limit: 20, null: false
+    t.string "IMEI", limit: 20, null: false
+    t.string "name", limit: 50, null: false
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -129,8 +129,8 @@ ActiveRecord::Schema.define(version: 20170927073450) do
   end
 
   create_table "shops", force: :cascade do |t|
-    t.string "accounting_system_code", null: false
-    t.string "title", null: false
+    t.string "accounting_system_code", limit: 20, null: false
+    t.string "title", limit: 20, null: false
     t.string "address"
     t.decimal "latitude", precision: 10, scale: 4
     t.decimal "longitude", precision: 10, scale: 4
@@ -159,7 +159,7 @@ ActiveRecord::Schema.define(version: 20170927073450) do
     t.string "unconfirmed_email"
     t.string "name", null: false
     t.boolean "admin", default: false
-    t.string "office"
+    t.string "office", default: "Не указано"
     t.bigint "company_id"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
