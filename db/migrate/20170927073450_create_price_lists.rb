@@ -5,7 +5,7 @@ class CreatePriceLists < ActiveRecord::Migration[5.1]
       t.references :price_type
       t.references :product
       t.references :load_event
-      t.decimal    :price, precision: 17, scale: 2
+      t.decimal    :price, null: false, precision: 17, scale: 2
       t.timestamps
     end
   end
