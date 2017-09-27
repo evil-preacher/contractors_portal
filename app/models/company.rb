@@ -5,6 +5,7 @@ class Company < ApplicationRecord
   has_many :remainders
   has_many :sales_agents
   has_many :price_types
+  has_many :price_lists
   has_many :load_events
   has_many :product_types
   has_many :product_groups, through: :product_types

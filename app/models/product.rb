@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   belongs_to :company
   belongs_to :brand, optional: true
   has_many   :remainders
+  has_many   :price_lists
 
   validates :title, presence: true
   validates :accounting_system_code, presence: true, uniqueness: true, length: { maximum: 20 }
