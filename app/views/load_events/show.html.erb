@@ -4,6 +4,11 @@
   <% @load_event.remainders.each do |remainder| %>
    <p>Название: <%= remainder.product.title %>, Количество: <%= remainder.remainder %></p>
   <% end %>
+<% else %>
+  <h3>Цены:</h3>
+  <% @load_event.price_lists.each do |price| %>
+    <p>Название: <%= price.product.title %>, Цена: <%= price.price %></p>
+  <% end %>
 <% end %>
 <br>
 <%= link_to 'Назад', load_events_path %>
