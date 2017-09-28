@@ -12,7 +12,7 @@ class PriceListsController < ApplicationController
   end
 
   def create
-    @price_list = PriceList.new(price_list_params)
+    @price_list = current_user.company.price_lists.new(price_list_params)
 
     if @price_list.save
       @load_event = current_user.company.load_events.create(loading: DateTime.now)
