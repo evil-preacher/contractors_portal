@@ -32,8 +32,11 @@ class PriceTypesController < ApplicationController
   end
 
   def destroy
-    @price_type.destroy
-    redirect_to price_types_path
+    unless @price_type.destroy
+      flash[:notice] = @price_type.errors.full_messages[0]
+    else
+      redirect_to price_types_path
+    end
   end
 
   private

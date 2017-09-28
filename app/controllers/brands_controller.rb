@@ -31,6 +31,14 @@ class BrandsController < ApplicationController
     end
   end
 
+  def destroy
+    unless @brand.destroy
+      flash[:notice] = @brand.errors.full_messages[0]
+    else
+      redirect_to brands_path
+    end
+  end
+
   private
 
   def set_brand
