@@ -5,11 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
-  belongs_to :company, optional: true, dependent: :restrict_with_error
+  belongs_to :company, optional: true
 
-  validates :name, presence: { message: "Не может быть пустым" }
-  validates :email, presence: { message: "Не может быть пустым" },
-                    uniqueness: { message: "Такой email или пароль уже существует" }
+  validates :name, presence: true
 
   after_create :send_notification_create
 

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170927073450) do
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
-    t.string "title", limit: 20, null: false
+    t.string "title", limit: 50, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "company_id"

@@ -1,10 +1,8 @@
 class SalesAgent < ApplicationRecord
-  belongs_to :company, dependent: :restrict_with_error
+  belongs_to :company
 
-  validates :accounting_system_code, presence:   { message: "Не может быть пустым" },
-                                     uniqueness: { message: "Такой КУС уже существует" },
-                                     length:     { maximum: 20, message: "должен быть не более 20 символов" }
-  validates :IMEI, presence:   { message: "Не может быть пустым" },
-                   uniqueness: { message: "Такой IMEI уже существует" },
-                   length:     { is: 15, message: "должен быть 15 символов"  }
+  validates :name, presence: true
+
+  validates :accounting_system_code, presence: true, uniqueness: true, length: { maximum: 20 }
+  validates :IMEI, presence: true, uniqueness: true, length: { is: 15 }
 end

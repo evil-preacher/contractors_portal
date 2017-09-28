@@ -1,9 +1,8 @@
 class PriceList < ApplicationRecord
-  belongs_to :company, dependent: :restrict_with_error
-  belongs_to :product, dependent: :restrict_with_error
-  belongs_to :price_type, dependent: :restrict_with_error
-  belongs_to :load_event, optional: true, dependent: :restrict_with_error
+  belongs_to :company
+  belongs_to :product
+  belongs_to :price_type
+  belongs_to :load_event, optional: true
 
-  validates :price, presence: { message: "Не может быть пустым" },
-                    numericality: { message: "Это только числовое поле" }
+  validates :price, presence: true, numericality: true
 end

@@ -1,0 +1,166 @@
+ru:
+  activerecord:
+    models:
+      brand:                    "Бренд"
+      company:                  "Компания"
+      load_event:               "Загрузка данных"
+      price_list:               "Цены"
+      price-type:               "Тип цен"
+      product:                  "Товар"
+      product_group:            "Товарная группа"
+      product_type:             "Категория товаров"
+      remainder:                "Остатки"
+      sales_agent:              "Торговый агент"
+      search:                   "Поиск"
+      shop:                     "Магазин"
+      user:                     "Пользователь"
+    attributes:
+      brand:
+        title:                  "Название"
+      company:
+        name:                   "Название"
+        bin:                    "БИН"
+        phone:                  "Телефон"
+        address:                "Адрес"
+      load_event:
+        loading:                "Загрузка"
+      price_list:
+        price:                  "Цена"
+      price_type:
+        accounting_system_code: "Код учётной системы"
+        title:                  "Название"
+      product:
+        accounting_system_code: "Код учётной системы"
+        title:                  "Название"
+        barcode:                "Штрихкод"
+      product_group:
+        title:                  "Название"
+      product_type:
+        title:                  "Название"
+      remainder:
+        remainder:              "Остатки"
+      sales_agent:
+        accounting_system_code: "Код учётной системы"
+        IMEI:                   "IMEI"
+        name:                   "ФИО"
+      shop:
+        accounting_system_code: "Код учётной системы"
+        title:                  "Название"
+        address:                "Адрес"
+        latitude:               "Широта"
+        longitude:              "Долгота"
+      user:
+        email:                  "email"
+        name:                   "Имя пользователя"
+        office:                 "Должность"
+    errors:
+      models:
+        brand:
+          attributes:
+            base:
+              restrict_dependent_destroy:
+                has_many:     "Невозможно удалить, есть подчинённые элементы"
+            title:
+              blank:           "должно быть указано"
+              too_long:        "не должно превышать 50 символов"
+        company:
+          attributes:
+            base:
+              restrict_dependent_destroy:
+                has_many:     "Невозможно удалить, есть подчинённые элементы"
+            name:
+              blank:           "должно быть указано"
+            bin:
+              blank:           "должен быть указан"
+              taken:           "такой БИН уже существует"
+              too_long:        "должен быть 12 символов"
+            phone:
+              blank:           "должен быть указан"
+            address:
+              blank:           "должен быть указан"
+        load_event:
+          attributes:
+            base:
+              restrict_dependent_destroy:
+                has_many:     "Невозможно удалить, есть подчинённые элементы"
+            loading:
+              blank:          "не может быть пустой"
+        price_list:
+          attributes:
+            price:
+              blank:          "должна быть указана"
+              not_a_number:   "должна быть числом"
+        price_type:
+          attributes:
+            base:
+              restrict_dependent_destroy:
+                has_many:     "Невозможно удалить, есть подчинённые элементы"
+            accounting_system_code:
+              blank:          "должен быть указан"
+              taken:          "такой КУС уже существует"
+              too_long:       "должен быть не более 20 символов"
+            title:
+              blank:          "должно быть указано"
+        product:
+          attributes:
+            accounting_system_code:
+              blank:          "должен быть указан"
+              taken:          "такой КУС уже существует"
+              too_long:       "должен быть не более 20 символов"
+            title:
+              blank:          "должно быть указано"
+            barcode:
+              blank:          "должен быть указан"
+              taken:          "такой штрихкод уже существует"
+              too_long:       "не должен превышать 20 символов"
+        product_group:
+          attributes:
+            base:
+              restrict_dependent_destroy:
+                has_many:     "Невозможно удалить, есть подчинённые элементы"
+            title:
+              blank:          "должно быть указано"
+        product_type:
+          attributes:
+            base:
+              restrict_dependent_destroy:
+                has_many:     "Невозможно удалить, есть подчинённые элементы"
+            title:
+              blank:          "должно быть указано"
+        remainder:
+          attributes:
+            remainder:
+              blank:          "не может быть пустым"
+              not_a_number:   "должна быть числом"
+        sales_agent:
+          attributes:
+            accounting_system_code:
+              blank:          "должен быть указан"
+              taken:          "такой КУС уже существует"
+              too_long:       "должен быть не более 20 символов"
+            name:
+              blank:          "должно быть указано"
+            IMEI:
+              blank:          "должен быть указан"
+              taken:          "такой IMEI уже существует"
+              wrong_length:   "должен быть 15 символов"
+        shop:
+          attributes:
+            title:
+              blank:          "должно быть указано"
+            accounting_system_code:
+              blank:          "должен быть указан"
+              taken:          "такой КУС уже существует"
+              too_long:       "должен быть не более 20 символов"
+        user:
+          attributes:
+            name:
+              blank:          "не может быть пустым"
+            email:
+              blank:          "не может быть пустым"
+              taken:          "такой email уже существует"
+            password:
+              blank:          "не может быть пустым"
+
+
+

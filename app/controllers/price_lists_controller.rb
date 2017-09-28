@@ -12,7 +12,7 @@ class PriceListsController < ApplicationController
   end
 
   def create
-    @price_list = current_user.company.price_lists.new(price_list_params)
+    @price_list = PriceList.new(price_list_params)
 
     if @price_list.save
       @load_event = current_user.company.load_events.create(loading: DateTime.now)
@@ -43,7 +43,7 @@ class PriceListsController < ApplicationController
   private
 
   def price_list_params
-    params.require(:price_list).permit(:company_id, :price_type_id, :product_id, :load_event_id, :price )
+    params.require(:price_list).permit( :price_type_id, :product_id, :load_event_id, :price )
   end
 
   def set_price_list

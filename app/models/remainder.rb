@@ -1,8 +1,7 @@
 class Remainder < ApplicationRecord
-  belongs_to :load_event, optional: true, dependent: :restrict_with_error
-  belongs_to :product, dependent: :restrict_with_error
-  belongs_to :company, dependent: :restrict_with_error
+  belongs_to :load_event, optional: true
+  belongs_to :product
+  belongs_to :company
 
-  validates :remainder, presence: { message: "Не может быть пустым" },
-                        numericality: { message: "Это только числовое поле" }
+  validates :remainder, presence: true, numericality: true
 end

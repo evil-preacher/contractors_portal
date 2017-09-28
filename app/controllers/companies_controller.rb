@@ -7,7 +7,11 @@ class CompaniesController < ApplicationController
   def show; end
 
   def new
-    @company = Company.new
+    if current_user.company.present?
+      redirect_to root_path, alert: "У вас уже есть одна"
+    else
+      @company = Company.new
+    end
   end
 
   def create
