@@ -26,6 +26,8 @@ ru:
         loading:                "Загрузка"
       price_list:
         price:                  "Цена"
+        product:                "Товар"
+        price_type:             "Тип цен"
       price_type:
         accounting_system_code: "Код учётной системы"
         title:                  "Название"
@@ -33,8 +35,10 @@ ru:
         accounting_system_code: "Код учётной системы"
         title:                  "Название"
         barcode:                "Штрихкод"
+        product_group:          "Товарная группа"
       product_group:
         title:                  "Название"
+        product_type:           "Категория товаров"
       product_type:
         title:                  "Название"
       remainder:
@@ -49,6 +53,7 @@ ru:
         address:                "Адрес"
         latitude:               "Широта"
         longitude:              "Долгота"
+        price_type:             "Тип цен"
       user:
         email:                  "email"
         name:                   "Имя пользователя"
@@ -90,6 +95,10 @@ ru:
             price:
               blank:          "должна быть указана"
               not_a_number:   "должна быть числом"
+            product:
+              required:       "должен наличествовать"
+            price_type:
+              required:       "должен присутствовать"
         price_type:
           attributes:
             base:
@@ -113,6 +122,8 @@ ru:
               blank:          "должен быть указан"
               taken:          "такой штрихкод уже существует"
               too_long:       "не должен превышать 20 символов"
+            product_group:
+              required:       "должна быть указана"
         product_group:
           attributes:
             base:
@@ -120,6 +131,8 @@ ru:
                 has_many:     "Невозможно удалить, есть подчинённые элементы"
             title:
               blank:          "должно быть указано"
+            product_type:
+              required:       "обязательна к указанию"
         product_type:
           attributes:
             base:
@@ -152,6 +165,8 @@ ru:
               blank:          "должен быть указан"
               taken:          "такой КУС уже существует"
               too_long:       "должен быть не более 20 символов"
+            price_type:
+              required:       "должен быть указан"
         user:
           attributes:
             name:
