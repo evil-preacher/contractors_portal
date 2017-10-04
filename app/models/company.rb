@@ -10,6 +10,7 @@ class Company < ApplicationRecord
   has_many :product_types, dependent: :restrict_with_error
   has_many :product_groups
   has_many :products
+  has_many :order_headers
 
   validates :name, presence: true
   validates :bin, presence: true, uniqueness: true, length: { is: 12 }
