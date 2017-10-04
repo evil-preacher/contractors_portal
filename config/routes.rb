@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :load_events, only: [:index, :show, :new, :create]
   resources :remainders
   resources :searches
+  resources :order_headers
   get 'home' => 'home#show'
 
   root 'home#show'

@@ -1,0 +1,9 @@
+<tr>
+  <td><%= order_header.shop.title %></td>
+  <td><%= order_header.sum %></td>
+  <td><%= order_header.current_date.to_date %></td>
+  <td><%= order_header.delivery_date.to_date %></td>
+
+  <td><%= link_to 'Изменить', edit_order_header_path(order_header), class: "btn btn-info" %></td>
+  <td><%= link_to 'Удалить', order_header, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-danger" %></td>
+</tr>

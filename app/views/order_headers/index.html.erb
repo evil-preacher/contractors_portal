@@ -1,0 +1,18 @@
+<h1><i class="fa fa-cubes" aria-hidden="true"></i> Заявки</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Магазин</th>
+      <th>Сумма заявки</th>
+      <th>Дата создания</th>
+      <th>Дата доставки</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @order_headers %>
+  </tbody>
+</table>
+<br>
+<%= link_to "Домой", root_path %>
+<br>
+<%= link_to "Добавить заявку", new_order_header_path %>
