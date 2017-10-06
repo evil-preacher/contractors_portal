@@ -10,7 +10,11 @@ default: &default
 development:
   <<: *default
   database: contractors_app_development
+  username: contractors_app
+  password: 12345
 
 test:
   <<: *default
   database: contractors_app_test
+  username: contractors_app
+  password: 12345
