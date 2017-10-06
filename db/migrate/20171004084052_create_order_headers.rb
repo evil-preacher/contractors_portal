@@ -7,7 +7,7 @@ class CreateOrderHeaders < ActiveRecord::Migration[5.1]
       t.datetime   :delivery_date
       t.references :shop, null: false
       t.string     :comment
-      t.decimal    :sum, null: false
+      t.decimal    :sum, default: 0
       t.boolean    :with_docs, default: false
       t.string     :wtf_code
       t.string     :imei, null: false, limit: 20

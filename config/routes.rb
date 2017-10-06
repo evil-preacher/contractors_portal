@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :remainders
   resources :searches
   resources :order_headers
+  resources :order_tables
   get 'home' => 'home#show'
 
   root 'home#show'

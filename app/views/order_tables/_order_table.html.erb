@@ -1,0 +1,8 @@
+<% @order_table.each do |order_table| %>
+  <tr>
+    <td>Наименование: <%= order_table.product.title %></td>
+    <td>Цена: <%= order_table.price_list.price %></td>
+    <td>Количество: <%= order_table.count %></td>
+    <td>Сумма: <%= order_table.cost %></td>
+  </tr>
+<% end %>

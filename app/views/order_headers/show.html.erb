@@ -1,0 +1,10 @@
+<p><strong>Заявка</strong></p>
+<p><%= @order_header.shop.title %></p>
+<p><%= @order_header.sum %></p>
+<p><%= @order_header.current_date.to_date %></p>
+<p><%= @order_header.delivery_date.to_date %></p>
+
+<p><%= render "order_tables/order_table" %></p>
+
+<%= link_to 'Домой', root_path %>
+<%= link_to 'Редактировать', edit_order_header_path %>

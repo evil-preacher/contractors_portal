@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   belongs_to :brand, optional: true
   has_many   :remainders, dependent: :restrict_with_error
   has_many   :price_lists, dependent: :restrict_with_error
+  has_many :order_tables
 
   validates :title, presence: true
   validates :accounting_system_code, presence: true, uniqueness: true, length: { maximum: 20 }

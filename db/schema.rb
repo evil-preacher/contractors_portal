@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20171004090348) do
     t.datetime "delivery_date"
     t.bigint "shop_id", null: false
     t.string "comment"
-    t.decimal "sum", null: false
+    t.decimal "sum", default: "0.0"
     t.boolean "with_docs", default: false
     t.string "wtf_code"
     t.string "imei", limit: 20, null: false

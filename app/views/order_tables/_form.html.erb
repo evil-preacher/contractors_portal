@@ -1,0 +1,28 @@
+<%= form_for order_table do |f| %>
+  <%= render 'common/errors', resource: order_table %>
+  <form>
+    <div class="form-group">
+      <%= f.label :product_id, "Товар" %><br />
+      <%= f.collection_select :product_id, Product.where(company_id: current_user.company_id), :id, :title, {}, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :price_list_id, "Цена" %><br />
+      <%= f.collection_select :price_list_id, PriceList.where(company_id: current_user.company_id), :id, :price, {}, class: "form-control"  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :count, "Количество" %><br />
+      <%= f.number_field :count, step: 0.001, class: "form-control text-right", placeholder: '0,000' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :cost, "Сумма" %><br />
+      <%= f.number_field :cost, step: 0.01, class: "form-control text-right", placeholder: '0,00' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "#{order_table.new_record? ? 'Сохранить' : 'Изменить'}", class: 'btn btn-primary'%>
+    </div>
+  </form>
+<% end %>
