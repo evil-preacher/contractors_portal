@@ -21,6 +21,11 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'cancancan'
+gem 'jwt'
+gem 'simple_command'
+gem 'oj'
+gem 'oj_mimic_json'
+gem 'active_model_serializers'
 
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
