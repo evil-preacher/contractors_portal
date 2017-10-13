@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'authenticate', to: 'authentication#authenticate'
       resources :companies, only: :show
+      resources :remainders, only: :index
+      resources :price_lists, only: :index
     end
   end
 
