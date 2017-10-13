@@ -1,5 +1,5 @@
 class Api::V1::PriceListsController < Api::V1::BaseController
   def index
-    @price_lists = current_user.company.price_lists
+    render json: @price_lists = current_user.company.price_lists
   end
 end
