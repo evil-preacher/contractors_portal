@@ -23,7 +23,7 @@
 
     <div class="form-group">
       <%= f.label :brand_id, "Бренд" %><br />
-      <%= f.collection_select :brand_id, Brand.where(company_id: current_user.company_id), :id, :title, {}, class: "form-control" %>
+      <%= f.collection_select :brand_id, Brand.where(company_id: current_user.company_id), :id, :title, include_blank: true, class: "form-control"%>
     </div>
 
     <%= f.hidden_field :company_id, :value => current_user.company.id %>

@@ -1,10 +1,9 @@
 <% if user_signed_in? %>
-  <div class="col-lg-9 graph-links">
+  <div class="col-lg-9 col-md-9 col-sm-8 graph-links">
     <h3>Графики:</h3>
     <ul class="nav nav-list list-inline">
       <li><%= link_to "Заявок за последнюю неделю", "/path1"  %></li>
       <li><%= link_to "ТОП-10 товаров", "/path2"  %></li>
-      <li><%= link_to "Ещё какая-нибудь хренотень", "/path3"  %></li>
     </ul>
   </div><!--/.well -->
 <% end %>

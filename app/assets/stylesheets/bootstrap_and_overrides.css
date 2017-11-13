@@ -7,7 +7,34 @@
 
 body {
   color: #2f3a48;
+
 }
+
+.container {
+  width: 100%;
+}
+
+.section {
+  margin: 0;
+}
+
+.col-lg-2 {
+  padding: 0;
+}
+
+.col-lg-9 {
+  padding: 0;
+}
+
+/*footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  padding: 0;
+  margin: 0;
+  background-color: #989B9D;
+}*/
 
 i {
   color: #989B9D;
@@ -15,6 +42,12 @@ i {
 
 .navbar {
   margin-bottom: 0;
+}
+
+.style_logo {
+  height: 40px;
+  float: left;
+  margin: 0.8em;
 }
 
 .navbar .profile {
@@ -34,8 +67,10 @@ i {
 =
 =
 */
+
 .section {
-  height: 100%;
+  background-color: #344251;
+  min-height: 100vh;
 }
 
 .section i {
@@ -46,6 +81,7 @@ i {
 
 .section > ul {
   list-style: none;
+  padding: 0;
 }
 
 .section > ul > li {
@@ -57,6 +93,8 @@ i {
   border: none;
   color: #8193a7;
   text-align: left;
+  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
 }
 
 .section > ul > li > a:hover{

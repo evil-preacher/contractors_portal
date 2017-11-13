@@ -28,16 +28,17 @@
       <div class="row">
         <%= render "common/sections" %>
         <%= render 'common/sidebar' %>
-        <div class="col-lg-9">
+        <div class="col-lg-9 col-md-9 col-sm-8 main_block">
           <%= bootstrap_flash %>
           <%= yield %>
+          <footer>
+            <p>Copyright &copy; <%= Date.current.year %> Павел Пухтий</p>
+          </footer>
         </div>
 
       </div><!--/row-->
 
-      <footer>
-        <p>&copy; <%= Date.current.year %> Павел Пухтий</p>
-      </footer>
+
 
     </div> <!-- /container -->
 
