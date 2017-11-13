@@ -18,6 +18,15 @@ Rails.application.routes.draw do
   resources :order_tables
   get 'home' => 'home#show'
 
+  namespace :api do
+    namespace :v1 do
+      post 'authenticate', to: 'authentication#authenticate'
+      resources :companies, only: :show
+      resources :remainders, only: :index
+      resources :price_lists, only: :index
+    end
+  end
+
   root 'home#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
