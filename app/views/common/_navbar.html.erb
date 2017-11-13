@@ -18,9 +18,15 @@
                 <li><%= link_to "Пользователи", users_path  %></li>
               <% end %>
               <li><%= link_to 'Торговые агенты', sales_agents_path %></li>
-              <li><%= link_to "Выход", destroy_user_session_path, method: :delete %></li>
+            </ul>
+            <p class="profile">
+              <%= current_user.name %>
+
+              <a href="my/users/sign_out", data-method="delete"><i class="fa fa-sign-out" aria-hidden="true"></i> Выход</a>
+            </p>
+
+
             <% end %>
-          </ul>
         </div>
       </div>
     </div>

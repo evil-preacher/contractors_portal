@@ -5,8 +5,67 @@
   =require twitter-bootstrap-static/sprites
 */
 
+body {
+  color: #2f3a48;
+}
+
 i {
-  color: #076607;
+  color: #989B9D;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar .profile {
+  float: right;
+  margin-top: 1em;
+}
+
+.profile a {
+  color: #2f3a48;
+  font-size: 1em;
+  text-decoration: none;
+  margin-left: 1em;
+}
+
+/* SECTION STYLES
+=
+=
+=
+*/
+.section {
+  height: 100%;
+}
+
+.section i {
+  float: left;
+  margin-right: 1em;
+  color: #8193a7;
+}
+
+.section > ul {
+  list-style: none;
+}
+
+.section > ul > li {
+  background: #344251;
+}
+
+.section > ul > li > a {
+  border-radius: 0;
+  border: none;
+  color: #8193a7;
+  text-align: left;
+}
+
+.section > ul > li > a:hover{
+  background: #2f3a48;
+  color: #fff;
+}
+
+.section > ul > li > a:hover i.fa {
+  color: #fff;
 }
 
 .list-inline > li {
