@@ -1,6 +1,10 @@
 <tr>
   <td><%= price_type.accounting_system_code %></td>
   <td><%= price_type.title %></td>
-  <td><%= link_to 'Редактировать', edit_price_type_path(price_type), class: "btn btn-info" %></td>
-  <td><%= link_to 'Удалить', price_type, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-danger" %></td>
+  <td>
+    <div class="btn-group btn-group-xs" role="group" aria-label="...">
+      <%= link_to 'Изменить', edit_price_type_path(price_type), class: "btn btn-default" %>
+      <%= link_to 'Удалить', price_type, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-default" %>
+    </div>
+  </td>
 </tr>

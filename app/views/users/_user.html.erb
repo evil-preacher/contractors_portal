@@ -3,8 +3,12 @@
     <td><%= user.name %></td>
     <td><%= user.email %></td>
     <td><%= user.office %></td>
-    <td><%= link_to 'Показать', user, class: "btn btn-info" %></td>
-    <td><%= link_to 'Удалить', user, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-danger" %></td>
+    <td>
+      <div class="btn-group btn-group-xs" role="group" aria-label="...">
+        <%= link_to 'Показать', user, class: "btn btn-default" %>
+        <%= link_to 'Удалить', user, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-default" %>
+      </div>
+    </td>
   </tr>
 <% else %>
   <p>Все в сад</p>

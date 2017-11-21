@@ -2,6 +2,10 @@
   <td><%= sales_agent.accounting_system_code %></td>
   <td><%= sales_agent.IMEI %></td>
   <td><%= sales_agent.name %></td>
-  <td><%= link_to 'Редактировать', edit_sales_agent_path(sales_agent), class: "btn btn-info" %></td>
-  <td><%= link_to 'Удалить', sales_agent, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-danger" %></td>
+  <td>
+    <div class="btn-group btn-group-xs" role="group" aria-label="...">
+      <%= link_to 'Изменить', edit_sales_agent_path(sales_agent), class: "btn btn-default" %>
+      <%= link_to 'Удалить', sales_agent, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-default" %>
+    </div>
+  </td>
 </tr>
