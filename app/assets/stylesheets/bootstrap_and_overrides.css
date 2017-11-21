@@ -82,11 +82,19 @@ i {
   padding: 0;
 }
 
-.section > ul > li {
-  background: #344251;
+
+.section .navbar-collapse {
+  padding: 0;
 }
 
-.section > ul > li > a {
+.section .navbar-collapse ul {
+  padding: 0;
+}
+/*.section > ul > li {
+  background: #344251;
+}*/
+
+.section  ul  li  a {
   border-radius: 0;
   border: none;
   color: #8193a7;
@@ -95,12 +103,12 @@ i {
   font-size: 16px;
 }
 
-.section > ul > li > a:hover{
+.section  ul  li  a:hover{
   background: #2f3a48;
   color: #fff;
 }
 
-.section > ul > li > a:hover i.fa {
+.section  ul  li  a:hover i.fa {
   color: #fff;
 }
 
@@ -110,4 +118,10 @@ i {
 
 .graph-links {
   border-bottom: 2px solid #dcdcdc;
+}
+
+@media screen and (max-width: 765px) {
+  .section {
+    min-height: 0;
+  }
 }

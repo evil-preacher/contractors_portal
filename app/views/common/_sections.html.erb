@@ -1,16 +1,23 @@
 <div class="col-lg-2 col-md-2 col-sm-3 section">
   <% if user_signed_in? %>
-    <ul>
-        <li><a href="/product_types" class="btn btn-lg btn-block unit"><i class="fa fa-folder-open" aria-hidden="true"></i> Категории товаров</a></li>
-        <li><a href="/product_groups" class="btn btn-lg btn-block unit"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Группы товаров</a></li>
-        <li><a href="/brands" class="btn btn-lg btn-block unit"><i class="fa fa-language" aria-hidden="true"></i> Бренды</a></li>
-        <li><a href="/products" class="btn btn-lg btn-block unit"><i class="fa fa-gift" aria-hidden="true"></i> Товары</a></li>
-        <li><a href="/load_events" class="btn btn-lg btn-block unit"><i class="fa fa-upload" aria-hidden="true"></i> Загрузка данных</a></li>
-        <li><a href="/remainders" class="btn btn-lg btn-block unit"><i class="fa fa-cubes" aria-hidden="true"></i> Остатки</a></li>
-        <li><a href="/shops" class="btn btn-lg btn-block unit"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Магазины</a></li>
-        <li><a href="/price_types" class="btn btn-lg btn-block unit"><i class="fa fa-calculator" aria-hidden="true"></i> Типы цен</a></li>
-        <li><a href="/price_lists" class="btn btn-lg btn-block unit"><i class="fa fa-money" aria-hidden="true"></i> Цены</a></li>
-        <li><a href="/order_headers" class="btn btn-lg btn-block unit"><i class="fa fa-tasks" aria-hidden="true"></i> Заявки</a></li>
-    </ul>
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul>
+            <li><a href="/product_types" class="btn btn-lg btn-block unit"><i class="fa fa-folder-open" aria-hidden="true"></i> Категории товаров</a></li>
+            <li><a href="/product_groups" class="btn btn-lg btn-block unit"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Группы товаров</a></li>
+            <li><a href="/brands" class="btn btn-lg btn-block unit"><i class="fa fa-language" aria-hidden="true"></i> Бренды</a></li>
+            <li><a href="/products" class="btn btn-lg btn-block unit"><i class="fa fa-gift" aria-hidden="true"></i> Товары</a></li>
+            <li><a href="/load_events" class="btn btn-lg btn-block unit"><i class="fa fa-upload" aria-hidden="true"></i> Загрузка данных</a></li>
+            <li><a href="/remainders" class="btn btn-lg btn-block unit"><i class="fa fa-cubes" aria-hidden="true"></i> Остатки</a></li>
+            <li><a href="/shops" class="btn btn-lg btn-block unit"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Магазины</a></li>
+            <li><a href="/price_types" class="btn btn-lg btn-block unit"><i class="fa fa-calculator" aria-hidden="true"></i> Типы цен</a></li>
+            <li><a href="/price_lists" class="btn btn-lg btn-block unit"><i class="fa fa-money" aria-hidden="true"></i> Цены</a></li>
+            <li><a href="/order_headers" class="btn btn-lg btn-block unit"><i class="fa fa-tasks" aria-hidden="true"></i> Заявки</a></li>
+        </ul>
+    </div>
   <% end %>
 </div>
