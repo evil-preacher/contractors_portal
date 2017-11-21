@@ -22,6 +22,6 @@ class SearchesController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:keywords, :product_type_id, :product_group_id, :brand_id)
+    params.require(:search).permit(:keywords, :product_group_id, :brand_id)
   end
 end
