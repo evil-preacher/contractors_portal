@@ -25,7 +25,7 @@
 <div class="form-group">
   <%= form_tag import_products_path, multipart: true do %>
     <%= file_field_tag :file %>
-    <p class="help-block">Выберите файл из файловой системы.</p>
+    <p class="help-block">Выберите файл *.csv, *.xls или *.xlsx.</p>
     <%= submit_tag "Загрузить", class: 'btn btn-default' %>
   <% end %>
 </div>
