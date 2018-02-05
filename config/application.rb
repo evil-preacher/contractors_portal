@@ -1,5 +1,7 @@
 require_relative 'boot'
 
+require 'csv'
+require 'iconv'
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
@@ -14,7 +16,7 @@ module ContractorsApp
     config.autoload_paths << Rails.root.join('lib')
     config.eager_load_paths << Rails.root.join('lib')
 
-    config.i18n.default_locale = :ru
+    config.i18n.default_locale = :en
     config.time_zone = 'Almaty'
   end
 end

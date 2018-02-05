@@ -9,4 +9,10 @@ class Product < ApplicationRecord
   validates :title, presence: true
   validates :accounting_system_code, presence: true, uniqueness: true, length: { maximum: 20 }
   validates :barcode, presence: true, uniqueness: true, length: { maximum: 20 }
+
+  def self.import(file)
+    CSV.foreach(file.path, headers:true) do |row|
+      Product.create! row.to_hash
+    end
+  end
 end

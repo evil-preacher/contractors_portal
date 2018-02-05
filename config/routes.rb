@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :price_types
   resources :product_types
   resources :product_groups
-  resources :products
+  resources :products do
+    collection { post :import }
+  end
   resources :brands
   resources :load_events, only: [:index, :show, :new, :create]
   resources :remainders

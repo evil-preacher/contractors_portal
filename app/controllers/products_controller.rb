@@ -23,6 +23,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def import
+    current_user.company.products.import(params[:file])
+    redirect_to products_path, notice: "Товары загружены"
+  end
+
   def edit; end
 
   def update
