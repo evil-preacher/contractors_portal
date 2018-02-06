@@ -1,9 +1,9 @@
 <p><strong>Данные о компании</strong></p>
-<p><%= @company.id %></p>
-<p><%= @company.name %></p>
-<p><%= @company.bin %></p>
-<p><%= @company.phone %></p>
-<p><%= @company.address %></p>
+<p>ID: <%= @company.id %></p>
+<p>Наименование: <%= @company.name %></p>
+<p>БИН: <%= @company.bin %></p>
+<p>Телефон: <%= @company.phone %></p>
+<p>Адрес: <%= @company.address %></p>
 
 <%= link_to 'Домой', root_path %>
 <%= link_to 'Редактировать', edit_company_path %>
