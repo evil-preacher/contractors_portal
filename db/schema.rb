@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20180209082024) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "accounting_system_code", limit: 20, null: false
+    t.string "accounting_system_code", null: false
     t.string "title", limit: 50, null: false
-    t.string "parent_code", limit: 20
+    t.string "parent_code", limit: 50
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

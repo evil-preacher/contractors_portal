@@ -27,12 +27,12 @@ body {
   /*padding: 0;*/ /* this need, if footer has color */
 }
 
-footer {
+/*footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 40px;
-}
+}*/
 
 i {
   color: #989B9D;

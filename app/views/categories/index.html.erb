@@ -1,0 +1,24 @@
+<h1><i class="fa fa-language" aria-hidden="true"></i> Иерархия товаров</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Название</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @categories %>
+  </tbody>
+</table>
+<br>
+
+<h3>Категории</h3>
+<% @categories.each do |category| %>
+  <% unless category.has_parent? %>
+    <ul>
+      <li><%= category.title %></li>
+    </ul>
+  <% end %>
+<% end %>
+<%= link_to "Домой", root_path %>
+<br>
+<%= link_to "Добавить категорию", new_category_path %>

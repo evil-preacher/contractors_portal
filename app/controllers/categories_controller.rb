@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  include CategoriesHelper
+
   authorize_resource
 
   before_action :set_category, except: [:index, :new, :create]
@@ -8,7 +10,7 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = category.new
+    @category = Category.new
   end
 
   def create
@@ -41,7 +43,7 @@ class CategoriesController < ApplicationController
   private
 
   def set_category
-    @category = category.find(params[:id])
+    @category = Category.find(params[:id])
   end
 
   def category_params

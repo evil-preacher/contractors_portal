@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   resources :sales_agents
   resources :price_lists
   resources :price_types
-  resources :product_types
-  resources :product_groups
+  resources :categories
   resources :products do
     collection { post :import }
   end
