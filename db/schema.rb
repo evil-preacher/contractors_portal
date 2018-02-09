@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004090348) do
+ActiveRecord::Schema.define(version: 20180209082024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20171004090348) do
     t.datetime "updated_at", null: false
     t.bigint "company_id"
     t.index ["company_id"], name: "index_brands_on_company_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "accounting_system_code", limit: 20, null: false
+    t.string "title", limit: 50, null: false
+    t.string "parent_code", limit: 20
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_categories_on_company_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -96,12 +106,12 @@ ActiveRecord::Schema.define(version: 20171004090348) do
 
   create_table "product_groups", force: :cascade do |t|
     t.string "title", limit: 50, null: false
-    t.bigint "product_type_id"
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "accounting_system_code", null: false
+    t.string "product_type_accounting_system_code", null: false
     t.index ["company_id"], name: "index_product_groups_on_company_id"
-    t.index ["product_type_id"], name: "index_product_groups_on_product_type_id"
   end
 
   create_table "product_types", force: :cascade do |t|
@@ -109,6 +119,7 @@ ActiveRecord::Schema.define(version: 20171004090348) do
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "accounting_system_code", null: false
     t.index ["company_id"], name: "index_product_types_on_company_id"
   end
 

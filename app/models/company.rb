@@ -11,6 +11,7 @@ class Company < ApplicationRecord
   has_many :product_groups
   has_many :products
   has_many :order_headers
+  has_many :categories
 
   validates :name, presence: true
   validates :bin, presence: true, uniqueness: true, length: { is: 12 }
