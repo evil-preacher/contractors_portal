@@ -26,4 +26,8 @@ class Category < ApplicationRecord
       # do nothing
     end
   end
+
+  def self.clear_all
+    Category.delete_all
+  end
 end

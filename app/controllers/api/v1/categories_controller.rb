@@ -14,6 +14,9 @@ class Api::V1::CategoriesController < Api::V1::BaseController
     end
   end
 
+  def clear_all
+    current_user.company.categories.clear_all
+  end
 
   private
 
