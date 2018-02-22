@@ -25,7 +25,9 @@ Rails.application.routes.draw do
       resources :companies, only: :show
       resources :remainders, only: :index
       resources :price_lists, only: :index
-      resources :categories, only: [:index, :create]
+      resources :categories, only: :index do
+        post 'batch_create',  on: :collection
+      end
     end
   end
 

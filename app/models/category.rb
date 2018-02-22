@@ -14,4 +14,16 @@ class Category < ApplicationRecord
   def has_children?
     children.exists?
   end
+
+  def self.batch_create(categories)
+    begin
+      Category.transaction do
+        JSON.parse(categories).each do |category|
+          Category.create!(category)
+        end
+      end
+    rescue
+      # do nothing
+    end
+  end
 end
