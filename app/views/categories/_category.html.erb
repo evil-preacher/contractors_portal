@@ -1,7 +1,4 @@
 <tr>
+  <td><%=category.accounting_system_code %></td>
   <td><%= category.title %></td>
-  <td><div class="btn-group btn-group-xs" role="group" aria-label="...">
-    <%= link_to 'Изменить', edit_category_path(category), class: "btn btn-default" %>
-    <%= link_to 'Удалить', category, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-default" %>
-  </div></td>
 </tr>

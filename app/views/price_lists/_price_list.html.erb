@@ -7,10 +7,4 @@
   <% else %>
     <td>Что-то наебнулось</td>
   <% end %>
-  <td>
-    <div class="btn-group btn-group-xs" role="group" aria-label="...">
-      <%= link_to 'Изменить', edit_price_list_path(price_list), class: "btn btn-default" %>
-      <%= link_to 'Удалить', price_list, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-default" %>
-    </div>
-  </td>
 </tr>
