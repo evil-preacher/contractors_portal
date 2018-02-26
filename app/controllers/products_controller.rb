@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def show; end
 
   def new
-    @product = Product.new(product_group_id: params[:product_group_id])
+    @product = Product.new
   end
 
   def create
@@ -51,6 +51,6 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:title, :accounting_system_code, :barcode,
-                                    :product_group_id, :brand_id, :company_id)
+                                    :category_accounting_system_code, :brand_id, :company_id)
   end
 end
