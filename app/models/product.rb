@@ -3,8 +3,8 @@ require 'csv'
 class Product < ApplicationRecord
   belongs_to :category, class_name: "Category", foreign_key: "accounting_system_code", primary_key: "accounting_system_code"
   belongs_to :company
-  belongs_to :brand, optional: true
-  has_many   :remainders, dependent: :restrict_with_error
+  belongs_to :brand, optional: true, class_name: "Brand", foreign_key: "accounting_system_code", primary_key: "accounting_system_code"
+  has_many   :remainders, dependent: :restrict_with_error, foreign_key: "product_accounting_system_code", primary_key: "product_accounting_system_code"
   has_many   :price_lists, dependent: :restrict_with_error
   has_many   :order_tables
 

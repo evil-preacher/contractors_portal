@@ -26,6 +26,6 @@ class RemaindersController < ApplicationController
   private
 
   def remainder_params
-    params.require(:remainder).permit(:remainder, :load_event_id, :product_id, :company_id)
+    params.require(:remainder).permit(:remainder, :load_event_id, :product_accounting_system_code, :company_id)
   end
 end

@@ -8,11 +8,7 @@
   <% else %>
     <td>--</td>
   <% end %>
-  <% if product.remainders.present? %>
-    <td><%= product.remainders.last.remainder %></td>
-  <% else %>
-    <td>0</td>
-  <% end %>
+
   <td>
     <div class="btn-group-vertical btn-group-xs" role="group" aria-label="...">
       <%= link_to 'Показать', product_path(product), class: "btn btn-default" %>

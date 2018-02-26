@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226073108) do
+ActiveRecord::Schema.define(version: 20180226105638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180226073108) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "company_id"
+    t.string "accounting_system_code"
     t.index ["company_id"], name: "index_brands_on_company_id"
   end
 
@@ -108,6 +109,8 @@ ActiveRecord::Schema.define(version: 20180226073108) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "category_accounting_system_code"
+    t.string "brand_accounting_system_code"
+    t.index ["brand_accounting_system_code"], name: "index_products_on_brand_accounting_system_code"
     t.index ["category_accounting_system_code"], name: "index_products_on_category_accounting_system_code"
     t.index ["company_id"], name: "index_products_on_company_id"
   end
@@ -118,8 +121,10 @@ ActiveRecord::Schema.define(version: 20180226073108) do
     t.bigint "load_event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_accounting_system_code"
     t.index ["company_id"], name: "index_remainders_on_company_id"
     t.index ["load_event_id"], name: "index_remainders_on_load_event_id"
+    t.index ["product_accounting_system_code"], name: "index_remainders_on_product_accounting_system_code"
   end
 
   create_table "sales_agents", force: :cascade do |t|

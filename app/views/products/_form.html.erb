@@ -17,8 +17,13 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :product_group_id, "Классификатор" %><br />
+      <%= f.label :category_accounting_system_code, "Классификатор" %><br />
       <%= f.collection_select :category_accounting_system_code, Category.where(company_id: current_user.company_id), :accounting_system_code, :title, {}, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :brand_accounting_system_code, "Бренд" %><br />
+      <%= f.collection_select :brand_accounting_system_code, Brand.where(company_id: current_user.company_id), :accounting_system_code, :title, {}, class: "form-control" %>
     </div>
 
     <%= f.hidden_field :company_id, :value => current_user.company.id %>
