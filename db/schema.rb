@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209082024) do
+ActiveRecord::Schema.define(version: 20180226065603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,16 +83,12 @@ ActiveRecord::Schema.define(version: 20180209082024) do
 
   create_table "price_lists", force: :cascade do |t|
     t.bigint "company_id"
-    t.bigint "price_type_id"
-    t.bigint "product_id"
     t.bigint "load_event_id"
     t.decimal "price", precision: 17, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_price_lists_on_company_id"
     t.index ["load_event_id"], name: "index_price_lists_on_load_event_id"
-    t.index ["price_type_id"], name: "index_price_lists_on_price_type_id"
-    t.index ["product_id"], name: "index_price_lists_on_product_id"
   end
 
   create_table "price_types", force: :cascade do |t|
@@ -104,51 +100,24 @@ ActiveRecord::Schema.define(version: 20180209082024) do
     t.index ["company_id"], name: "index_price_types_on_company_id"
   end
 
-  create_table "product_groups", force: :cascade do |t|
-    t.string "title", limit: 50, null: false
-    t.bigint "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "accounting_system_code", null: false
-    t.string "product_type_accounting_system_code", null: false
-    t.index ["company_id"], name: "index_product_groups_on_company_id"
-  end
-
-  create_table "product_types", force: :cascade do |t|
-    t.string "title", limit: 50, null: false
-    t.bigint "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "accounting_system_code", null: false
-    t.index ["company_id"], name: "index_product_types_on_company_id"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "accounting_system_code", limit: 20, null: false
     t.string "title", limit: 50, null: false
     t.string "barcode", limit: 20, null: false
-    t.bigint "product_type_id"
-    t.bigint "product_group_id"
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "brand_id"
-    t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["company_id"], name: "index_products_on_company_id"
-    t.index ["product_group_id"], name: "index_products_on_product_group_id"
-    t.index ["product_type_id"], name: "index_products_on_product_type_id"
   end
 
   create_table "remainders", force: :cascade do |t|
     t.decimal "remainder", precision: 17, scale: 3, null: false
     t.bigint "company_id"
     t.bigint "load_event_id"
-    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_remainders_on_company_id"
     t.index ["load_event_id"], name: "index_remainders_on_load_event_id"
-    t.index ["product_id"], name: "index_remainders_on_product_id"
   end
 
   create_table "sales_agents", force: :cascade do |t|
@@ -179,9 +148,7 @@ ActiveRecord::Schema.define(version: 20180209082024) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "company_id"
-    t.bigint "price_type_id"
     t.index ["company_id"], name: "index_shops_on_company_id"
-    t.index ["price_type_id"], name: "index_shops_on_price_type_id"
   end
 
   create_table "users", force: :cascade do |t|
