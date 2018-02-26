@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :path_prefix => 'my'
 
   resources :users
-  resources :companies
+  resources :companies, only: [:show, :new, :create, :edit, :update]
   resources :shops, only: :index
   resources :sales_agents
   resources :price_lists, only: :index
