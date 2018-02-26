@@ -3,17 +3,17 @@ Rails.application.routes.draw do
 
   resources :users
   resources :companies
-  resources :shops
+  resources :shops, only: :index
   resources :sales_agents
-  resources :price_lists
-  resources :price_types
-  resources :categories
-  resources :products do
+  resources :price_lists, only: :index
+  resources :price_types, only: :index
+  resources :categories, only: :index
+  resources :products, only: [:index, :show] do
     collection { post :import }
   end
-  resources :brands
+  resources :brands, only: :index
   resources :load_events, only: [:index, :show, :new, :create]
-  resources :remainders
+  resources :remainders, only: :index
   resources :searches
   resources :order_headers
   resources :order_tables
