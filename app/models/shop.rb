@@ -5,5 +5,5 @@ class Shop < ApplicationRecord
   has_many   :order_headers
 
   validates :title, presence: true
-  validates :accounting_system_code, presence: true, uniqueness: true, length: { maximum: 20 }
+  validates :accounting_system_code, presence: true, length: { maximum: 20 }
 end

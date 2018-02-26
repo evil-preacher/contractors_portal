@@ -43,7 +43,7 @@ class PriceListsController < ApplicationController
   private
 
   def price_list_params
-    params.require(:price_list).permit( :company_id, :price_type_id, :product_id, :load_event_id, :price )
+    params.require(:price_list).permit( :company_id, :price_type_accounting_system_code, :product_accounting_system_code, :load_event_id, :price )
   end
 
   def set_price_list

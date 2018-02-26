@@ -2,13 +2,13 @@
   <%= render 'common/errors', resource: price_list %>
   <form>
     <div class="form-group">
-      <%= f.label :product_id, "Товар" %><br />
-      <%= f.collection_select :product_id, Product.where(company_id: current_user.company_id), :id, :title, {}, class: "form-control" %>
+      <%= f.label :product_accounting_system_code, "Товар" %><br />
+      <%= f.collection_select :product_accounting_system_code, Product.where(company_id: current_user.company_id), :accounting_system_code, :title, {}, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= f.label :price_type_id, "Тип цен" %><br />
-      <%= f.collection_select :price_type_id, PriceType.where(company_id: current_user.company_id), :id, :title, {}, class: "form-control" %>
+      <%= f.label :price_type_accounting_system_code, "Тип цен" %><br />
+      <%= f.collection_select :price_type_accounting_system_code, PriceType.where(company_id: current_user.company_id), :accounting_system_code, :title, {}, class: "form-control" %>
     </div>
 
     <div class="form-group">
