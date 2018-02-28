@@ -1,10 +1,9 @@
 require 'csv'
 
 class Product < ApplicationRecord
-  belongs_to :category, class_name: "Category", foreign_key: "accounting_system_code", primary_key: "accounting_system_code"
+  belongs_to :category, optional: true, class_name: "Category", foreign_key: "accounting_system_code", primary_key: "accounting_system_code"
   belongs_to :company
   belongs_to :brand, optional: true, class_name: "Brand", foreign_key: "accounting_system_code", primary_key: "accounting_system_code"
-  has_many   :remainders, dependent: :restrict_with_error, foreign_key: "product_accounting_system_code", primary_key: "product_accounting_system_code"
   has_many   :price_lists, dependent: :restrict_with_error, class_name: "PriceList", foreign_key: "product_accounting_system_code", primary_key: "product_accounting_system_code"
   has_many   :order_tables
 
@@ -30,5 +29,21 @@ class Product < ApplicationRecord
     when ".xlsx" then Roo::Excelx.new(file.path, nil, :ignore)
     else raise "Unknown file type: #{file.original_filename}"
     end
+  end
+
+  def self.batch_create(products)
+    begin
+      Product.transaction do
+        JSON.parse(products).each do |product|
+          Product.create!(product)
+        end
+      end
+    rescue
+      # do nothing
+    end
+  end
+
+  def self.clear_all
+    Product.delete_all
   end
 end
