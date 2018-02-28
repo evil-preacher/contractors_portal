@@ -1,10 +1,6 @@
 class Api::V1::CategoriesController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token
 
-  def index
-    render json: @categories = current_user.company.categories
-  end
-
   def batch_create
     success = current_user.company.categories.batch_create(request.raw_post)
     if success

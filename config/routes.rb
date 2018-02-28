@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :path_prefix => 'my'
 
   resources :users
-  resources :companies, only: [:show, :new, :create, :edit, :update]
+  resources  :companies
   resources :shops, only: :index
   resources :sales_agents
   resources :price_lists, only: :index
@@ -25,10 +25,10 @@ Rails.application.routes.draw do
       resources :companies, only: :show
       resources :remainders, only: :index
       resources :price_lists, only: :index
-      resources :categories, only: [:index] do
-        post 'batch_create',  on: :collection
-        delete 'clear_all', on: :collection
-      end
+      post 'categories/batch_create', to: 'categories#batch_create'
+      delete 'categories/clear_all', to: 'categories#clear_all'
+      post 'brands/batch_create', to: 'brands#batch_create'
+      delete 'brands/clear_all', to: 'brands#clear_all'
     end
   end
 
