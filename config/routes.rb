@@ -32,6 +32,8 @@ Rails.application.routes.draw do
       get 'price_lists/index', to: 'price_lists#index'
       post 'price_lists/batch_create', to: 'price_lists#batch_create'
       delete 'price_lists/clear_all', to: 'price_lists#clear_all'
+      post 'price_types/batch_create', to: 'price_types#batch_create'
+      delete 'price_types/clear_all', to: 'price_types#clear_all'
     end
   end
 
