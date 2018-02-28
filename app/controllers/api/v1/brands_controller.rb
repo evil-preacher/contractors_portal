@@ -13,10 +13,4 @@ class Api::V1::BrandsController < Api::V1::BaseController
   def clear_all
     current_user.company.brands.clear_all
   end
-
-  private
-
-  def brand_params
-    params.require(:brand).permit(:accounting_system_code, :title)
-  end
 end
