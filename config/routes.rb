@@ -34,6 +34,10 @@ Rails.application.routes.draw do
       delete 'price_lists/clear_all', to: 'price_lists#clear_all'
       post 'price_types/batch_create', to: 'price_types#batch_create'
       delete 'price_types/clear_all', to: 'price_types#clear_all'
+      post 'shops/batch_create', to: 'shops#batch_create'
+      delete 'shops/clear_all', to: 'shops#clear_all'
+      post 'sales_agents/batch_create', to: 'sales_agents#batch_create'
+      delete 'sales_agents/clear_all', to: 'sales_agents#clear_all'
     end
   end
 
