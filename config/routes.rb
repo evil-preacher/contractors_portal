@@ -23,8 +23,6 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'authenticate', to: 'authentication#authenticate'
       resources :companies, only: :show
-      resources :remainders, only: :index
-      resources :price_lists, only: :index
       post 'categories/batch_create', to: 'categories#batch_create'
       delete 'categories/clear_all', to: 'categories#clear_all'
       post 'brands/batch_create', to: 'brands#batch_create'
@@ -38,6 +36,9 @@ Rails.application.routes.draw do
       delete 'shops/clear_all', to: 'shops#clear_all'
       post 'sales_agents/batch_create', to: 'sales_agents#batch_create'
       delete 'sales_agents/clear_all', to: 'sales_agents#clear_all'
+      get 'remainders/index', to: 'remainders#index'
+      post 'remainders/batch_create', to: 'remainders#batch_create'
+      delete 'remainders/clear_all', to: 'remainders#clear_all'
     end
   end
 
