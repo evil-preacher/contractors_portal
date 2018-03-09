@@ -2,9 +2,9 @@
   <td><%= product.accounting_system_code %></td>
   <td><%= product.title %></td>
   <td><%= product.barcode %></td>
-  <td><%= Category.where(accounting_system_code: product.category_accounting_system_code).first.title %></td>
-  <% if Brand.where(accounting_system_code: product.brand_accounting_system_code).present? %>
-    <td><%= Brand.where(accounting_system_code: product.brand_accounting_system_code).first.title %></td>
+  <td><%= current_user.company.categories.where(accounting_system_code: product.category_accounting_system_code).first.title %></td>
+  <% if current_user.company.brands.where(accounting_system_code: product.brand_accounting_system_code).present? %>
+    <td><%= current_user.company.brands.where(accounting_system_code: product.brand_accounting_system_code).first.title %></td>
   <% else %>
     <td>--</td>
   <% end %>
