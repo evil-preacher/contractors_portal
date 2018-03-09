@@ -1,4 +1,4 @@
 <tr>
-  <td><%= remainder.product.title %></td>
+  <td><%= current_user.company.products.where(accounting_system_code: remainder.product_accounting_system_code).first.title %></td>
   <td><%= remainder.remainder %></td>
 </tr>
