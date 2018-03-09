@@ -3,6 +3,7 @@ class Remainder < ApplicationRecord
   belongs_to :company
 
   validates :remainder, presence: true, numericality: true
+  validates :product_accounting_system_code, presence: true
 
   def self.batch_create(remainders)
     begin
