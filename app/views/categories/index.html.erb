@@ -2,7 +2,9 @@
 <table class="table">
   <thead>
     <tr>
+      <th>КУС</th>
       <th>Название</th>
+      <th>Код родителя</th>
     </tr>
   </thead>
   <tbody>
@@ -11,13 +13,5 @@
 </table>
 <br>
 
-<h3>Категории</h3>
-<% @categories.each do |category| %>
-  <% unless category.has_parent? %>
-    <ul>
-      <li><%= category.title %></li>
-    </ul>
-  <% end %>
-<% end %>
 <%= link_to "Домой", root_path %>
 
