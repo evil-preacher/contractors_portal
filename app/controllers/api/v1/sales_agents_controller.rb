@@ -4,9 +4,9 @@ class Api::V1::SalesAgentsController < Api::V1::BaseController
   def batch_create
     success = current_user.company.sales_agents.batch_create(request.raw_post)
     if success
-      render json: {success: 'sales_agents added'}, status: :created
+      render json: {success: 'Торговые агенты добавлены'}, status: :created
     else
-      render json: {failed: 'sales_agents not added'}, status: :unprocessable_entity
+      render json: {failed: 'Торговые агенты не добавлены'}, status: :unprocessable_entity
     end
   end
 

@@ -4,9 +4,9 @@ class Api::V1::CategoriesController < Api::V1::BaseController
   def batch_create
     success = current_user.company.categories.batch_create(request.raw_post)
     if success
-      render json: {success: 'categories added'}, status: :created
+      render json: {success: 'Категории загружены'}, status: :created
     else
-      render json: {failed: 'categories not added'}, status: :unprocessable_entity
+      render json: {failed: 'Категории не загружены'}, status: :unprocessable_entity
     end
   end
 

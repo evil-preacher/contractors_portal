@@ -4,9 +4,9 @@ class Api::V1::BrandsController < Api::V1::BaseController
   def batch_create
     success = current_user.company.brands.batch_create(request.raw_post)
     if success
-      render json: {success: 'brands added'}, status: :created
+      render json: {success: 'Бренды добавлены'}, status: :created
     else
-      render json: {failed: 'brands not added'}, status: :unprocessable_entity
+      render json: {failed: 'Бренды не добавлены'}, status: :unprocessable_entity
     end
   end
 

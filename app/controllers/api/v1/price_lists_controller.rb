@@ -8,9 +8,9 @@ class Api::V1::PriceListsController < Api::V1::BaseController
   def batch_create
     success = current_user.company.price_lists.batch_create(request.raw_post)
     if success
-      render json: {success: 'price_lists added'}, status: :created
+      render json: {success: 'Цены добавлены'}, status: :created
     else
-      render json: {failed: 'price_lists not added'}, status: :unprocessable_entity
+      render json: {failed: 'Цены не добавлены'}, status: :unprocessable_entity
     end
   end
 

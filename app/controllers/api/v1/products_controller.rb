@@ -4,9 +4,9 @@ class Api::V1::ProductsController < Api::V1::BaseController
   def batch_create
     success = current_user.company.products.batch_create(request.raw_post)
     if success
-      render json: {success: 'products added'}, status: :created
+      render json: {success: 'Товары добавлены'}, status: :created
     else
-      render json: {failed: 'products not added'}, status: :unprocessable_entity
+      render json: {failed: 'Товары не добавлены'}, status: :unprocessable_entity
     end
   end
 

@@ -8,9 +8,9 @@ class Api::V1::RemaindersController < Api::V1::BaseController
   def batch_create
     success = current_user.company.remainders.batch_create(request.raw_post)
     if success
-      render json: {success: 'remainders added'}, status: :created
+      render json: {success: 'Остатки добавлены'}, status: :created
     else
-      render json: {failed: 'remainders not added'}, status: :unprocessable_entity
+      render json: {failed: 'Остатки не добавлены'}, status: :unprocessable_entity
     end
   end
 
