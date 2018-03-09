@@ -3,7 +3,6 @@ class Category < ApplicationRecord
   belongs_to :parent, class_name: "Category", optional: true, foreign_key: "parent_code", primary_key: "parent_code"
 
   has_many   :children, class_name: "Category", foreign_key: "parent_code", primary_key: "parent_code"
-  has_many   :products, class_name: "Category", foreign_key: "category_accounting_system_code", primary_key: "category_accounting_system_code"
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :accounting_system_code, presence: true, length: { maximum: 20 }

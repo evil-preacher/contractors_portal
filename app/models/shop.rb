@@ -1,6 +1,5 @@
 class Shop < ApplicationRecord
   belongs_to :company
-  belongs_to :price_type
 
   has_many   :order_headers
 
