@@ -1,6 +1,4 @@
 class Api::V1::CategoriesController < Api::V1::BaseController
-  skip_before_action :verify_authenticity_token
-
   def batch_create
     Category.where(company_id: current_user.company.id).delete_all
     success = current_user.company.categories.batch_create(request.raw_post)

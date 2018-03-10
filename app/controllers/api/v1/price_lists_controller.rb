@@ -6,16 +6,13 @@ class Api::V1::PriceListsController < Api::V1::BaseController
   end
 
   def batch_create
+    PriceList.where(company_id: current_user.company.id).delete_all
     success = current_user.company.price_lists.batch_create(request.raw_post)
     if success
       render json: {success: 'Цены добавлены'}, status: :created
     else
       render json: {failed: 'Цены не добавлены'}, status: :unprocessable_entity
     end
-  end
-
-  def clear_all
-    current_user.company.price_lists.clear_all
   end
 
   private

@@ -6,16 +6,13 @@ class Api::V1::RemaindersController < Api::V1::BaseController
   end
 
   def batch_create
+    Remainder.where(company_id: current_user.company.id).delete_all
     success = current_user.company.remainders.batch_create(request.raw_post)
     if success
       render json: {success: 'Остатки добавлены'}, status: :created
     else
       render json: {failed: 'Остатки не добавлены'}, status: :unprocessable_entity
     end
-  end
-
-  def clear_all
-    current_user.company.remainders.clear_all
   end
 
   private

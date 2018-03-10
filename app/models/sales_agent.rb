@@ -16,8 +16,4 @@ class SalesAgent < ApplicationRecord
       # do nothing
     end
   end
-
-  def self.clear_all
-    SalesAgent.delete_all
-  end
 end

@@ -16,8 +16,4 @@ class Remainder < ApplicationRecord
       # do nothing
     end
   end
-
-  def self.clear_all
-    Remainder.delete_all
-  end
 end

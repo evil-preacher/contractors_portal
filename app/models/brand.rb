@@ -15,9 +15,5 @@ class Brand < ApplicationRecord
       # do nothing
     end
   end
-
-  def self.clear_all
-    Brand.delete_all
-  end
 end
 

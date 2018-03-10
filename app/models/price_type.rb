@@ -15,8 +15,4 @@ class PriceType < ApplicationRecord
       # do nothing
     end
   end
-
-  def self.clear_all
-    PriceType.delete_all
-  end
 end

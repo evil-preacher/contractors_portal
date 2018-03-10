@@ -39,8 +39,4 @@ class Product < ApplicationRecord
       # do nothing
     end
   end
-
-  def self.clear_all
-    Product.delete_all
-  end
 end

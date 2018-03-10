@@ -16,8 +16,4 @@ class PriceList < ApplicationRecord
       # do nothing
     end
   end
-
-  def self.clear_all
-    PriceList.delete_all
-  end
 end
