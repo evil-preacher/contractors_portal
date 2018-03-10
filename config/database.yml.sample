@@ -9,8 +9,12 @@ default: &default
 
 development:
   <<: *default
-  database: contractors_app_development
+  database: portal-lindir_development
+  username: lindir
+  password: 12345
 
 test:
   <<: *default
-  database: contractors_app_test
+  database: portal-lindir_test
+  username: lindir
+  password: 12345
