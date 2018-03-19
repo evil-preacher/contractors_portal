@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       get 'remainders/index', to: 'remainders#index'
       post 'remainders/batch_create', to: 'remainders#batch_create'
       post 'products/batch_create', to: 'products#batch_create'
+      post 'orders/create', to: 'order_headers#create'
     end
   end
 

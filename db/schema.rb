@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226141452) do
+ActiveRecord::Schema.define(version: 20180319102408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,11 +49,9 @@ ActiveRecord::Schema.define(version: 20180226141452) do
   end
 
   create_table "order_headers", force: :cascade do |t|
-    t.string "accounting_system_code", limit: 20, null: false
     t.boolean "loaded", default: false
-    t.datetime "current_date", null: false
-    t.datetime "delivery_date"
-    t.bigint "shop_id", null: false
+    t.string "current_date", null: false
+    t.string "delivery_date"
     t.string "comment"
     t.decimal "sum", default: "0.0"
     t.boolean "with_docs", default: false
@@ -62,8 +60,8 @@ ActiveRecord::Schema.define(version: 20180226141452) do
     t.bigint "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "shop_asc"
     t.index ["company_id"], name: "index_order_headers_on_company_id"
-    t.index ["shop_id"], name: "index_order_headers_on_shop_id"
   end
 
   create_table "order_tables", force: :cascade do |t|
