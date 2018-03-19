@@ -1,4 +1,5 @@
 class Api::V1::OrderHeadersController < Api::V1::BaseController
+  after_action :update_loaded_status, only: :index
   def index
     render json: @orders = current_user.company.order_headers.includes(:order_tables).where(loaded: false)
   end
@@ -15,6 +16,13 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
   end
 
   private
+
+  def update_loaded_status
+    current_user.company.order_headers.where(loaded: false).each do |order|
+      order.loaded = true
+      order.save
+    end
+  end
 
   def order_params
     params.require(:order_header).permit(
