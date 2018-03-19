@@ -4,18 +4,6 @@ class OrderHeader < ApplicationRecord
 
   accepts_nested_attributes_for :order_tables
 
-  # validates :imei, presence: true, uniqueness: true, length: { is: 15 }
-  # validates :shop_id, presence: true
-
-  def self.batch_create(orders)
-    begin
-      OrderHeader.transaction do
-        JSON.parse(orders).each do |order|
-          OrderHeader.create!(order)
-        end
-      end
-    rescue
-      # do nothing
-    end
-  end
+  validates :imei, presence: true, uniqueness: true, length: { is: 15 }
+  validates :shop_asc, presence: true
 end
