@@ -1,6 +1,6 @@
 class Api::V1::OrderHeadersController < Api::V1::BaseController
   def index
-    render json: @orders = OrderHeader.includes(:order_tables).where(company_id: current_user.company.id)
+    render json: @orders = current_user.company.order_headers.includes(:order_tables).where(loaded: false)
   end
 
   def create
