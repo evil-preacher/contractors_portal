@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       post 'remainders/batch_create', to: 'remainders#batch_create'
       post 'products/batch_create', to: 'products#batch_create'
       post 'orders/create', to: 'order_headers#create'
+      post 'orders/batch_create', to: 'order_headers#batch_create'
     end
   end
 
