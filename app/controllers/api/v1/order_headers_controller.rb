@@ -5,8 +5,7 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
   end
 
   def create
-    @order_header = current_user.company.order_headers.new(order_params)
-    pry
+    @order_header = current_user.company.order_headers.create(order_params)
 
     if @order_header.save
       render json: {success: 'Заявки загружены'}, status: :created
