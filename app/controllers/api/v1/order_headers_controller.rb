@@ -5,8 +5,9 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
   end
 
   def create
-    @order_header = current_user.company.order_headers.create(order_params)
-
+    params["orders"].each do |key, value|
+      @order_header = current_user.company.order_headers.create(order_params(value))
+    end
     if @order_header.save
       render json: {success: 'Заявки загружены'}, status: :created
     else
@@ -23,8 +24,8 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
     end
   end
 
-  def order_params
-    params.require(:order_header).permit(
+  def order_params(my_params)
+    my_params.permit(
                                         :current_date,
                                         :delivery_date,
                                         :shop_asc,
