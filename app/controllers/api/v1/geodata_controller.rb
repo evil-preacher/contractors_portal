@@ -13,7 +13,7 @@ class Api::V1::GeodataController < Api::V1::BaseController
   private
 
   def geodatum_params(my_params)
-    my_params.permit( :sale_agent_asc,
+    my_params.permit( :sales_agent_asc,
                       :longitude,
                       :latitude,
                       :time )
