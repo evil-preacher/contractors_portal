@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sale_agent_asc: MyString
+  shop_asc: MyString
+  day: 1
+  index_number: 1
+
+two:
+  sale_agent_asc: MyString
+  shop_asc: MyString
+  day: 1
+  index_number: 1
