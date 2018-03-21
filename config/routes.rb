@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       post 'orders/batch_create', to: 'order_headers#batch_create'
       get  'orders/index', to: 'order_headers#index'
       post 'routes/create', to: 'routes#create'
+      post 'geodata/create', to: 'geodata#create'
     end
   end
 
