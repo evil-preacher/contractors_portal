@@ -1,4 +1,8 @@
 class Api::V1::GeodataController < Api::V1::BaseController
+  def index
+    render json: @geodata = current_user.company.geodata
+  end
+
   def create
     params["geodata"].each do |key, value|
       @geodatum = current_user.company.geodata.create(geodatum_params(value))
