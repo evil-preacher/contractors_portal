@@ -10,6 +10,7 @@ class Company < ApplicationRecord
   has_many :products, dependent: :restrict_with_error
   has_many :order_headers, dependent: :restrict_with_error
   has_many :categories, dependent: :restrict_with_error
+  has_many :routes, dependent: :restrict_with_error
 
   validates :name, presence: true
 end

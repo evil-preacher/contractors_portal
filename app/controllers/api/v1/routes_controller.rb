@@ -5,7 +5,7 @@ class Api::V1::RoutesController < Api::V1::BaseController
 
   def create
     params["routes"].each do |key, value|
-      @route = current_user.company.routes.create(order_params(value))
+      @route = current_user.company.routes.create(route_params(value))
     end
     if @route.save
       render json: {success: 'Маршруты выгружены'}, status: :created
@@ -16,7 +16,7 @@ class Api::V1::RoutesController < Api::V1::BaseController
 
   private
 
-  def order_params(my_params)
+  def route_params(my_params)
     my_params.permit( :sale_agent_asc,
                       :shop_asc,
                       :day,
