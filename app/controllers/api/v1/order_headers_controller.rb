@@ -34,6 +34,8 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
                                         :with_docs,
                                         :wtf_code,
                                         :imei,
+                                        :latitude,
+                                        :longitude,
                                         :order_tables_attributes => [
                                                                 :id,
                                                                 :product_asc,
