@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       post 'authenticate', to: 'authentication#authenticate'
       resources :companies, only: :show
       post 'categories/create', to: 'categories#create'
-      post 'brands/batch_create', to: 'brands#batch_create'
+      post 'brands/create', to: 'brands#create'
       get 'price_lists/index', to: 'price_lists#index'
       post 'price_lists/batch_create', to: 'price_lists#batch_create'
       post 'price_types/batch_create', to: 'price_types#batch_create'
