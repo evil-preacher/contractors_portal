@@ -7,7 +7,7 @@ class Api::V1::PriceListsController < Api::V1::BaseController
 
   def create
     params["price_lists"].each do |key, value|
-      @price_list = current_user.company.prise_lists.create(price_list_params(value))
+      @price_list = current_user.company.price_lists.create(price_list_params(value))
     end
     if @price_list.save
       render json: {success: 'Заявки выгружены'}, status: :created
