@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'authenticate', to: 'authentication#authenticate'
       resources :companies, only: :show
-      post 'categories/batch_create', to: 'categories#batch_create'
+      post 'categories/create', to: 'categories#create'
       post 'brands/batch_create', to: 'brands#batch_create'
       get 'price_lists/index', to: 'price_lists#index'
       post 'price_lists/batch_create', to: 'price_lists#batch_create'

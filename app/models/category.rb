@@ -15,15 +15,15 @@ class Category < ApplicationRecord
     children.exists?
   end
 
-  def self.batch_create(categories)
-    begin
-      Category.transaction do
-        JSON.parse(categories).each do |category|
-          Category.create!(category)
-        end
-      end
-    rescue
-      # do nothing
-    end
-  end
+  # def self.batch_create(categories)
+  #   begin
+  #     Category.transaction do
+  #       JSON.parse(categories).each do |category|
+  #         Category.create!(category)
+  #       end
+  #     end
+  #   rescue
+  #     # do nothing
+  #   end
+  # end
 end
