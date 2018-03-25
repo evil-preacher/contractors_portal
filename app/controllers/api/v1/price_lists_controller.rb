@@ -6,7 +6,7 @@ class Api::V1::PriceListsController < Api::V1::BaseController
   end
 
   def create
-    params["prise_lists"].each do |key, value|
+    params["price_lists"].each do |key, value|
       @price_list = current_user.company.prise_lists.create(price_list_params(value))
     end
     if @price_list.save
