@@ -1,13 +1,18 @@
 class Api::V1::SalesAgentsController < Api::V1::BaseController
-  skip_before_action :verify_authenticity_token
-
-  def batch_create
-    SalesAgent.where(company_id: current_user.company.id).delete_all
-    success = current_user.company.sales_agents.batch_create(request.raw_post)
-    if success
-      render json: {success: 'Торговые агенты добавлены'}, status: :created
-    else
-      render json: {failed: 'Торговые агенты не добавлены'}, status: :unprocessable_entity
+  def create
+    params["sales_agents"].each do |key, value|
+      @sales_agent = current_user.company.sales_agents.create(sales_agent_params(value))
     end
+    if @sales_agent.save
+      render json: {success: 'Заявки выгружены'}, status: :created
+    else
+      render json: {failed: 'Заявки не выгружены'}, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def sales_agent_params(my_params)
+    my_params.permit(:accounting_system_code, :IMEI, :name, :company_id)
   end
 end

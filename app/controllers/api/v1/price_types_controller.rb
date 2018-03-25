@@ -1,11 +1,18 @@
 class Api::V1::PriceTypesController < Api::V1::BaseController
-  def batch_create
-    PriceType.where(company_id: current_user.company.id).delete_all
-    success = current_user.company.price_types.batch_create(request.raw_post)
-    if success
-      render json: {success: 'Типы цен добавлены'}, status: :created
-    else
-      render json: {failed: 'Типы цен не добавлены'}, status: :unprocessable_entity
+  def create
+    params["price_types"].each do |key, value|
+      @price_type = current_user.company.price_types.create(price_type_params(value))
     end
+    if @price_type.save
+      render json: {success: 'Заявки выгружены'}, status: :created
+    else
+      render json: {failed: 'Заявки не выгружены'}, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def price_type_params(my_params)
+    my_params.permit(:accounting_system_code, :title)
   end
 end

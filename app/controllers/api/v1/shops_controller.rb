@@ -1,13 +1,18 @@
 class Api::V1::ShopsController < Api::V1::BaseController
-  skip_before_action :verify_authenticity_token
-
-  def batch_create
-    Shop.where(company_id: current_user.company.id).delete_all
-    success = current_user.company.shops.batch_create(request.raw_post)
-    if success
-      render json: {success: 'Магазины добавлены'}, status: :created
-    else
-      render json: {failed: 'Магазины не добавлены'}, status: :unprocessable_entity
+  def create
+    params["shops"].each do |key, value|
+      @shop = current_user.company.shops.create(shop_params(value))
     end
+    if @shop.save
+      render json: {success: 'Заявки выгружены'}, status: :created
+    else
+      render json: {failed: 'Заявки не выгружены'}, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def shop_params(my_params)
+    my_params.permit(:accounting_system_code, :title, :address, :latitude, :longitude, :company_id)
   end
 end

@@ -4,16 +4,4 @@ class Remainder < ApplicationRecord
 
   validates :remainder, presence: true, numericality: true
   validates :product_accounting_system_code, presence: true
-
-  def self.batch_create(remainders)
-    begin
-      Remainder.transaction do
-        JSON.parse(remainders).each do |remainder|
-          Remainder.create!(remainder)
-        end
-      end
-    rescue
-      # do nothing
-    end
-  end
 end
