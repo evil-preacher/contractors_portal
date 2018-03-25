@@ -1,7 +1,7 @@
 class Api::V1::ProductsController < Api::V1::BaseController
   def create
     params["products"].each do |key, value|
-      @product = current_user.company.products.create(product_params(value))
+      @product = current_user.company.products.create!(product_params(value))
     end
     if @product.save
       render json: {success: 'Заявки выгружены'}, status: :created
