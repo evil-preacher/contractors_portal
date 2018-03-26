@@ -1,29 +1,28 @@
 class Api::V1::CategoriesController < Api::V1::BaseController
-  # around_action :wrap_in_transaction, only: :create
 
   def create
     Category.where(company_id: current_user.company.id).delete_all
+    @categories = []
+    @wrong_objects = []
+    @counter = 0
     params["categories"].each do |key, value|
-      @category = current_user.company.categories.create(category_params(value))
+      @counter += 1
+      if value[:accounting_system_code] && value[:title]
+        @category = current_user.company.categories.create(category_params(value))
+        @categories << @category
+      else
+        @wrong_objects << key
+      end
     end
-    if @category.save
-      render json: {success: 'Заявки выгружены'}, status: :created
+    if @categories.length == @counter
+      render json: {success: 'Категории выгружены'}, status: :created
     else
-      render json: {failed: 'Заявки не выгружены'}, status: :unprocessable_entity
+      render json: {failed: "Категории не выгружены, некорректные данные: #{@wrong_objects}"}, status: :unprocessable_entity
+      Category.where(company_id: current_user.company.id).delete_all
     end
   end
 
   private
-
-  def wrap_in_transaction
-    ActiveRecord::Base.transaction do
-      begin
-        yield
-      ensure
-        raise ActiveRecord::Rollback
-      end
-    end
-  end
 
   def category_params(my_params)
     my_params.permit(:accounting_system_code, :title, :parent_code)
