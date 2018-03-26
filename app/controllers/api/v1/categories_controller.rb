@@ -1,5 +1,5 @@
 class Api::V1::CategoriesController < Api::V1::BaseController
-  around_action :wrap_in_transaction, only: :create
+  # around_action :wrap_in_transaction, only: :create
 
   def create
     Category.where(company_id: current_user.company.id).delete_all

@@ -4,7 +4,7 @@ class Category < ApplicationRecord
 
   has_many   :children, class_name: "Category", foreign_key: "parent_code", primary_key: "parent_code"
 
-  validates :title, presence: true, length: { maximum: 50 }
+  validates :title, presence: true, length: { maximum: 150 }
   validates :accounting_system_code, presence: true, length: { maximum: 20 }
 
   def has_parent?
