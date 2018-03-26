@@ -1,5 +1,6 @@
 class Api::V1::CategoriesController < Api::V1::BaseController
   def create
+    Category.where(company_id: current_user.company.id).delete_all
     params["categories"].each do |key, value|
       @category = current_user.company.categories.create(category_params(value))
     end

@@ -6,6 +6,7 @@ class Api::V1::PriceListsController < Api::V1::BaseController
   end
 
   def create
+    PriceList.where(company_id: current_user.company.id).delete_all
     params["price_lists"].each do |key, value|
       @price_list = current_user.company.price_lists.create(price_list_params(value))
     end

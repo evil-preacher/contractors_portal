@@ -4,6 +4,7 @@ class Api::V1::RoutesController < Api::V1::BaseController
   end
 
   def create
+    Route.where(company_id: current_user.company.id).delete_all
     params["routes"].each do |key, value|
       @route = current_user.company.routes.create(route_params(value))
     end

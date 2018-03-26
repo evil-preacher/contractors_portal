@@ -1,5 +1,6 @@
 class Api::V1::BrandsController < Api::V1::BaseController
   def create
+    Brand.where(company_id: current_user.company.id).delete_all
     params["brands"].each do |key, value|
       @brand = current_user.company.brands.create(brand_params(value))
     end

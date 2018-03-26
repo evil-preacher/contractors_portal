@@ -1,5 +1,6 @@
 class Api::V1::ShopsController < Api::V1::BaseController
   def create
+    Shop.where(company_id: current_user.company.id).delete_all
     params["shops"].each do |key, value|
       @shop = current_user.company.shops.create(shop_params(value))
     end

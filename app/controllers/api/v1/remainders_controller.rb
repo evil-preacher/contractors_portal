@@ -6,6 +6,7 @@ class Api::V1::RemaindersController < Api::V1::BaseController
   end
 
   def create
+    Remainder.where(company_id: current_user.company.id).delete_all
     params["remainders"].each do |key, value|
       @remainder = current_user.company.remainders.create(remainder_params(value))
     end
