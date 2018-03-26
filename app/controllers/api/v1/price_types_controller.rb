@@ -1,4 +1,6 @@
 class Api::V1::PriceTypesController < Api::V1::BaseController
+  around_action :wrap_in_transaction, only: :create
+
   def create
     PriceType.where(company_id: current_user.company.id).delete_all
     params["price_types"].each do |key, value|
@@ -12,6 +14,16 @@ class Api::V1::PriceTypesController < Api::V1::BaseController
   end
 
   private
+
+  def wrap_in_transaction
+    ActiveRecord::Base.transaction do
+      begin
+        yield
+      ensure
+        raise ActiveRecord::Rollback
+      end
+    end
+  end
 
   def price_type_params(my_params)
     my_params.permit(:accounting_system_code, :title)

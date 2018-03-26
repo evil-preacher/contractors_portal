@@ -1,4 +1,6 @@
 class Api::V1::RoutesController < Api::V1::BaseController
+  around_action :wrap_in_transaction, only: :create
+
   def index
     render json: @routes = current_user.company.routes.where(sale_agent_asc: current_user.accounting_system_code)
   end
@@ -16,6 +18,16 @@ class Api::V1::RoutesController < Api::V1::BaseController
   end
 
   private
+
+  def wrap_in_transaction
+    ActiveRecord::Base.transaction do
+      begin
+        yield
+      ensure
+        raise ActiveRecord::Rollback
+      end
+    end
+  end
 
   def route_params(my_params)
     my_params.permit( :sale_agent_asc,

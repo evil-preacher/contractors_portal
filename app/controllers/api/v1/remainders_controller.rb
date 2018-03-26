@@ -1,5 +1,7 @@
 class Api::V1::RemaindersController < Api::V1::BaseController
+  around_action :wrap_in_transaction, only: :create
   after_action :set_load_event, only: :create
+
 
   def index
     render json: @remainders = current_user.company.remainders
@@ -18,6 +20,16 @@ class Api::V1::RemaindersController < Api::V1::BaseController
   end
 
   private
+
+  def wrap_in_transaction
+    ActiveRecord::Base.transaction do
+      begin
+        yield
+      ensure
+        raise ActiveRecord::Rollback
+      end
+    end
+  end
 
   def remainder_params(my_params)
     my_params.permit(:remainder, :company_id, :load_event_id, :product_accounting_system_code)
