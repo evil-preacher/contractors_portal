@@ -1,6 +1,5 @@
 class Api::V1::OrderHeadersController < Api::V1::BaseController
   after_action :update_loaded_status, only: :index
-  around_action :wrap_in_transaction, only: :create
 
   def index
     render json: @orders = current_user.company.order_headers.includes(:order_tables).where(loaded: false)
@@ -23,16 +22,6 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
     current_user.company.order_headers.where(loaded: false).each do |order|
       order.loaded = true
       order.save
-    end
-  end
-
-  def wrap_in_transaction
-    ActiveRecord::Base.transaction do
-      begin
-        yield
-      ensure
-        raise ActiveRecord::Rollback
-      end
     end
   end
 

@@ -1,5 +1,4 @@
 class Api::V1::CategoriesController < Api::V1::BaseController
-
   def create
     Category.where(company_id: current_user.company.id).delete_all
     @wrong_objects = []

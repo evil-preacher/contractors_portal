@@ -1,7 +1,5 @@
 class Api::V1::PriceListsController < Api::V1::BaseController
   after_action :set_load_event, only: :create
-  around_action :wrap_in_transaction, only: :create
-
 
   def index
     render json: @price_lists = current_user.company.price_lists
@@ -9,30 +7,30 @@ class Api::V1::PriceListsController < Api::V1::BaseController
 
   def create
     PriceList.where(company_id: current_user.company.id).delete_all
+    @wrong_objects = []
     params["price_lists"].each do |key, value|
-      @price_list = current_user.company.price_lists.create(price_list_params(value))
+      if value[:price] && value[:price_type_accounting_system_code] && value[:product_accounting_system_code]
+        @price_list = current_user.company.price_lists.create(price_list_params(value))
+      else
+        @wrong_objects << key
+      end
     end
-    if @price_list.save
-      render json: {success: 'Заявки выгружены'}, status: :created
+    if @wrong_objects.empty?
+      render json: {success: 'Цены выгружены'}, status: :created
     else
-      render json: {failed: 'Заявки не выгружены'}, status: :unprocessable_entity
+      render json: {failed: "Цены не выгружены, некорректные данные: #{@wrong_objects}"}, status: :unprocessable_entity
+      PriceList.where(company_id: current_user.company.id).delete_all
     end
   end
 
   private
 
-  def wrap_in_transaction
-    ActiveRecord::Base.transaction do
-      begin
-        yield
-      ensure
-        raise ActiveRecord::Rollback
-      end
-    end
-  end
-
   def price_list_params(my_params)
-    my_params.permit(:price, :load_event_id, :company_id, :price_type_accounting_system_code, :product_accounting_system_code)
+    my_params.permit(:price,
+                     :load_event_id,
+                     :company_id,
+                     :price_type_accounting_system_code,
+                     :product_accounting_system_code)
   end
 
   def set_load_event

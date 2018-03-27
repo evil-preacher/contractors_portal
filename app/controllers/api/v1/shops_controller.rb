@@ -1,31 +1,30 @@
 class Api::V1::ShopsController < Api::V1::BaseController
-  around_action :wrap_in_transaction, only: :create
-
   def create
     Shop.where(company_id: current_user.company.id).delete_all
+    @wrong_objects = []
     params["shops"].each do |key, value|
-      @shop = current_user.company.shops.create(shop_params(value))
+      if value[:accounting_system_code] && value[:title]
+        @shop = current_user.company.shops.create(shop_params(value))
+      else
+        @wrong_objects << key
+      end
     end
-    if @shop.save
-      render json: {success: 'Заявки выгружены'}, status: :created
+    if @wrong_objects.empty?
+      render json: {success: 'Контрагенты выгружены'}, status: :created
     else
-      render json: {failed: 'Заявки не выгружены'}, status: :unprocessable_entity
+      render json: {failed: "Контрагенты не выгружены, некорректные данные: #{@wrong_objects}"}, status: :unprocessable_entity
+      Shop.where(company_id: current_user.company.id).delete_all
     end
   end
 
   private
 
-  def wrap_in_transaction
-    ActiveRecord::Base.transaction do
-      begin
-        yield
-      ensure
-        raise ActiveRecord::Rollback
-      end
-    end
-  end
-
   def shop_params(my_params)
-    my_params.permit(:accounting_system_code, :title, :address, :latitude, :longitude, :company_id)
+    my_params.permit(:accounting_system_code,
+                     :title,
+                     :address,
+                     :latitude,
+                     :longitude,
+                     :company_id)
   end
 end
