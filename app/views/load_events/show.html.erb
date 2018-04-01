@@ -2,12 +2,12 @@
 <% if @load_event.remainders.present? %>
   <h3>Остатки:</h3>
   <% @load_event.remainders.each do |remainder| %>
-   <p>Название: <%= current_user.company.products.where(accounting_system_code: remainder.product_accounting_system_code).first.title %>, Количество: <%= remainder.remainder %></p>
+   <p>Название: <%= current_user.company.products.where(asc: remainder.product_asc).first.title %>, Количество: <%= remainder.remainder %></p>
   <% end %>
 <% else %>
   <h3>Цены:</h3>
   <% @load_event.price_lists.each do |price| %>
-    <p>Название: <%= current_user.company.products.where(accounting_system_code: price.product_accounting_system_code).first.title %>, Цена: <%= price.price %></p>
+    <p>Название: <%= current_user.company.products.where(asc: price.product_asc).first.title %>, Цена: <%= price.price %></p>
   <% end %>
 <% end %>
 <br>

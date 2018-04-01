@@ -1,6 +1,6 @@
 <tr>
-  <td><%= current_user.company.price_types.where(accounting_system_code: price_list.price_type_accounting_system_code).first.title %></td>
-  <td><%= current_user.company.products.where(accounting_system_code: price_list.product_accounting_system_code).first.title %></td>
+  <td><%= current_user.company.price_types.where(asc: price_list.price_type_asc).first.title %></td>
+  <td><%= current_user.company.products.where(asc: price_list.product_asc).first.title %></td>
   <td><%= price_list.price %></td>
   <% if price_list.load_event.present? %>
     <td><%= price_list.load_event.loading %></td>
