@@ -3,7 +3,7 @@ class Api::V1::SalesAgentsController < Api::V1::BaseController
     SalesAgent.where(company_id: current_user.company.id).delete_all
     @wrong_objects = []
     params["sales_agents"].each do |key, value|
-      if value[:accounting_system_code] && value[:IMEI] && value[:name]
+      if value[:asc] && value[:IMEI] && value[:name]
         @sales_agent = current_user.company.sales_agents.create(sales_agent_params(value))
       else
         @wrong_objects << key

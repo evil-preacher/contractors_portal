@@ -3,7 +3,7 @@ class Api::V1::ShopsController < Api::V1::BaseController
     Shop.where(company_id: current_user.company.id).delete_all
     @wrong_objects = []
     params["shops"].each do |key, value|
-      if value[:accounting_system_code] && value[:title]
+      if value[:asc] && value[:title]
         @shop = current_user.company.shops.create(shop_params(value))
       else
         @wrong_objects << key

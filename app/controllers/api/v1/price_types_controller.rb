@@ -3,7 +3,7 @@ class Api::V1::PriceTypesController < Api::V1::BaseController
     PriceType.where(company_id: current_user.company.id).delete_all
     @wrong_objects = []
     params["price_types"].each do |key, value|
-      if value[:accounting_system_code] && value[:title]
+      if value[:asc] && value[:title]
         @price_type = current_user.company.price_types.create(price_type_params(value))
       else
         @wrong_objects << key

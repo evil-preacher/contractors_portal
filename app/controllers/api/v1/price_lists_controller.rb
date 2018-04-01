@@ -9,7 +9,7 @@ class Api::V1::PriceListsController < Api::V1::BaseController
     PriceList.where(company_id: current_user.company.id).delete_all
     @wrong_objects = []
     params["price_lists"].each do |key, value|
-      if value[:price] && value[:price_type_accounting_system_code] && value[:product_accounting_system_code]
+      if value[:price] && value[:price_type_asc] && value[:product_asc]
         @price_list = current_user.company.price_lists.create(price_list_params(value))
       else
         @wrong_objects << key

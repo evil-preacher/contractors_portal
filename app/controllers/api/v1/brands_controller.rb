@@ -3,7 +3,7 @@ class Api::V1::BrandsController < Api::V1::BaseController
     Brand.where(company_id: current_user.company.id).delete_all
     @wrong_objects = []
     params["brands"].each do |key, value|
-      if value[:accounting_system_code] && value[:title]
+      if value[:asc] && value[:title]
         @brand = current_user.company.brands.create(brand_params(value))
       else
         @wrong_objects << key

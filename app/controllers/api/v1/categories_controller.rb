@@ -3,7 +3,7 @@ class Api::V1::CategoriesController < Api::V1::BaseController
     Category.where(company_id: current_user.company.id).delete_all
     @wrong_objects = []
     params["categories"].each do |key, value|
-      if value[:accounting_system_code] && value[:title]
+      if value[:asc] && value[:title]
         @category = current_user.company.categories.create(category_params(value))
       else
         @wrong_objects << key
