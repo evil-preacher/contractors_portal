@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326075910) do
+ActiveRecord::Schema.define(version: 20180401084310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
-    t.string "title", limit: 50, null: false
+    t.string "title", limit: 150, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "company_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180326075910) do
 
   create_table "categories", force: :cascade do |t|
     t.string "accounting_system_code", null: false
-    t.string "title", limit: 50, null: false
+    t.string "title", limit: 150, null: false
     t.string "parent_code", limit: 50
     t.bigint "company_id"
     t.datetime "created_at", null: false
@@ -170,7 +170,7 @@ ActiveRecord::Schema.define(version: 20180326075910) do
 
   create_table "shops", force: :cascade do |t|
     t.string "accounting_system_code", limit: 20, null: false
-    t.string "title", limit: 20, null: false
+    t.string "title", limit: 150, null: false
     t.string "address"
     t.decimal "latitude", precision: 10, scale: 4
     t.decimal "longitude", precision: 10, scale: 4
