@@ -4,7 +4,7 @@ class Shop < ApplicationRecord
   has_many   :order_headers
 
   validates :title, presence: true
-  validates :accounting_system_code, presence: true, length: { maximum: 20 }
+  validates :asc, presence: true, length: { maximum: 20 }
 
   def self.batch_create(shops)
     begin

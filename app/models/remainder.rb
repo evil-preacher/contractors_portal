@@ -3,5 +3,5 @@ class Remainder < ApplicationRecord
   belongs_to :company
 
   validates :remainder, presence: true, numericality: true
-  validates :product_accounting_system_code, presence: true
+  validates :product_asc, presence: true
 end
