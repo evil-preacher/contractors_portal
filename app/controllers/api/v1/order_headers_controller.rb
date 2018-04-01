@@ -1,8 +1,6 @@
 class Api::V1::OrderHeadersController < Api::V1::BaseController
-  after_action :update_loaded_status, only: :index
-
   def index
-    render json: @orders = current_user.company.order_headers.includes(:order_tables).where(loaded: false)
+    render json: @orders = current_user.company.order_headers.includes(:order_tables).where(loaded: params[:loaded])
   end
 
   def create
@@ -16,14 +14,17 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
     end
   end
 
-  private
+  def mark_order
+    @order = OrderHeader.find(params[:id])
+    @order.loaded = true
+    if @order.save
+      render json: { success: 'Статус обновлён'}, status: :created
+      else
+       render json: {failed: 'Статус не обновлён'}, status: :unprocessable_entity
+     end
+   end
 
-  def update_loaded_status
-    current_user.company.order_headers.where(loaded: false).each do |order|
-      order.loaded = true
-      order.save
-    end
-  end
+  private
 
   def order_params(my_params)
     my_params.permit(
