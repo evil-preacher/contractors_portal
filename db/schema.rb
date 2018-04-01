@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180401084310) do
+ActiveRecord::Schema.define(version: 20180401093725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,12 +20,12 @@ ActiveRecord::Schema.define(version: 20180401084310) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "company_id"
-    t.string "accounting_system_code"
+    t.string "asc"
     t.index ["company_id"], name: "index_brands_on_company_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "accounting_system_code", null: false
+    t.string "asc", null: false
     t.string "title", limit: 150, null: false
     t.string "parent_code", limit: 50
     t.bigint "company_id"
@@ -95,16 +95,16 @@ ActiveRecord::Schema.define(version: 20180401084310) do
     t.decimal "price", precision: 17, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "price_type_accounting_system_code"
-    t.string "product_accounting_system_code"
+    t.string "price_type_asc"
+    t.string "product_asc"
     t.index ["company_id"], name: "index_price_lists_on_company_id"
     t.index ["load_event_id"], name: "index_price_lists_on_load_event_id"
-    t.index ["price_type_accounting_system_code"], name: "index_price_lists_on_price_type_accounting_system_code"
-    t.index ["product_accounting_system_code"], name: "index_price_lists_on_product_accounting_system_code"
+    t.index ["price_type_asc"], name: "index_price_lists_on_price_type_asc"
+    t.index ["product_asc"], name: "index_price_lists_on_product_asc"
   end
 
   create_table "price_types", force: :cascade do |t|
-    t.string "accounting_system_code", limit: 20, null: false
+    t.string "asc", limit: 20, null: false
     t.string "title", limit: 50, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -113,16 +113,16 @@ ActiveRecord::Schema.define(version: 20180401084310) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "accounting_system_code", limit: 20, null: false
+    t.string "asc", limit: 20, null: false
     t.string "title", limit: 150, null: false
     t.string "barcode", limit: 20, null: false
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "category_accounting_system_code"
-    t.string "brand_accounting_system_code"
-    t.index ["brand_accounting_system_code"], name: "index_products_on_brand_accounting_system_code"
-    t.index ["category_accounting_system_code"], name: "index_products_on_category_accounting_system_code"
+    t.string "category_asc"
+    t.string "brand_asc"
+    t.index ["brand_asc"], name: "index_products_on_brand_asc"
+    t.index ["category_asc"], name: "index_products_on_category_asc"
     t.index ["company_id"], name: "index_products_on_company_id"
   end
 
@@ -132,10 +132,10 @@ ActiveRecord::Schema.define(version: 20180401084310) do
     t.bigint "load_event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "product_accounting_system_code"
+    t.string "product_asc"
     t.index ["company_id"], name: "index_remainders_on_company_id"
     t.index ["load_event_id"], name: "index_remainders_on_load_event_id"
-    t.index ["product_accounting_system_code"], name: "index_remainders_on_product_accounting_system_code"
+    t.index ["product_asc"], name: "index_remainders_on_product_asc"
   end
 
   create_table "routes", force: :cascade do |t|
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(version: 20180401084310) do
   end
 
   create_table "sales_agents", force: :cascade do |t|
-    t.string "accounting_system_code", limit: 20, null: false
+    t.string "asc", limit: 20, null: false
     t.string "IMEI", limit: 20, null: false
     t.string "name", limit: 50, null: false
     t.bigint "company_id"
@@ -169,7 +169,7 @@ ActiveRecord::Schema.define(version: 20180401084310) do
   end
 
   create_table "shops", force: :cascade do |t|
-    t.string "accounting_system_code", limit: 20, null: false
+    t.string "asc", limit: 20, null: false
     t.string "title", limit: 150, null: false
     t.string "address"
     t.decimal "latitude", precision: 10, scale: 4
@@ -177,9 +177,9 @@ ActiveRecord::Schema.define(version: 20180401084310) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "company_id"
-    t.string "price_type_accounting_system_code", null: false
+    t.string "price_type_asc", null: false
     t.index ["company_id"], name: "index_shops_on_company_id"
-    t.index ["price_type_accounting_system_code"], name: "index_shops_on_price_type_accounting_system_code"
+    t.index ["price_type_asc"], name: "index_shops_on_price_type_asc"
   end
 
   create_table "users", force: :cascade do |t|
