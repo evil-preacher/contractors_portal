@@ -1,3 +1,3 @@
 class BrandSerializer < ActiveModel::Serializer
-  attributes :accounting_system_code, :title
+  attributes :asc, :title
 end

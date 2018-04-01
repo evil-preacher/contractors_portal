@@ -1,3 +1,3 @@
 class RemainderSerializer < ActiveModel::Serializer
-  attributes :remainder, :product_accounting_system_code
+  attributes :remainder, :product_asc
 end
