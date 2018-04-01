@@ -29,8 +29,8 @@ class Api::V1::PriceListsController < Api::V1::BaseController
     my_params.permit(:price,
                      :load_event_id,
                      :company_id,
-                     :price_type_accounting_system_code,
-                     :product_accounting_system_code)
+                     :price_type_asc,
+                     :product_asc)
   end
 
   def set_load_event

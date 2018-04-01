@@ -20,7 +20,7 @@ class Api::V1::SalesAgentsController < Api::V1::BaseController
   private
 
   def sales_agent_params(my_params)
-    my_params.permit(:accounting_system_code,
+    my_params.permit(:asc,
                      :IMEI,
                      :name,
                      :company_id)

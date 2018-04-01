@@ -20,6 +20,6 @@ class Api::V1::BrandsController < Api::V1::BaseController
   private
 
   def brand_params(my_params)
-    my_params.permit(:accounting_system_code, :title)
+    my_params.permit(:asc, :title)
   end
 end

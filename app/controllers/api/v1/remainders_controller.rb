@@ -9,7 +9,7 @@ class Api::V1::RemaindersController < Api::V1::BaseController
     Remainder.where(company_id: current_user.company.id).delete_all
     @wrong_objects = []
     params["remainders"].each do |key, value|
-      if value[:remainder] && value[:product_accounting_system_code]
+      if value[:remainder] && value[:product_asc]
         @remainder = current_user.company.remainders.create(remainder_params(value))
       else
         @wrong_objects << key
@@ -29,7 +29,7 @@ class Api::V1::RemaindersController < Api::V1::BaseController
     my_params.permit(:remainder,
                      :company_id,
                      :load_event_id,
-                     :product_accounting_system_code)
+                     :product_asc)
   end
 
   def set_load_event

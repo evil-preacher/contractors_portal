@@ -20,7 +20,7 @@ class Api::V1::CategoriesController < Api::V1::BaseController
   private
 
   def category_params(my_params)
-    my_params.permit(:accounting_system_code,
+    my_params.permit(:asc,
                      :title,
                      :parent_code)
   end

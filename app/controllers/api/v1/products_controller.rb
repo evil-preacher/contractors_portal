@@ -20,11 +20,11 @@ class Api::V1::ProductsController < Api::V1::BaseController
   private
 
   def product_params(my_params)
-    my_params.permit(:accounting_system_code,
+    my_params.permit(:asc,
                      :title,
                      :barcode,
                      :company_id,
-                     :category_accounting_system_code,
-                     :brand_accounting_system_code)
+                     :category_asc,
+                     :brand_asc)
   end
 end

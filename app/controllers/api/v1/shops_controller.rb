@@ -20,7 +20,7 @@ class Api::V1::ShopsController < Api::V1::BaseController
   private
 
   def shop_params(my_params)
-    my_params.permit(:accounting_system_code,
+    my_params.permit(:asc,
                      :title,
                      :address,
                      :latitude,
