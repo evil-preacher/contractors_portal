@@ -2,7 +2,7 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
   def index
     load_date = params[:load_date]
     load_date = Date.parse(load_date)
-    render json: @orders = current_user.company.order_headers.includes(:order_tables).where(loaded: params[:loaded] AND created_at: load_date)
+    render json: @orders = current_user.company.order_headers.includes(:order_tables)
   end
 
   def create
