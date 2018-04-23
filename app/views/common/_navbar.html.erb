@@ -17,7 +17,6 @@
               <% if can? :manage, User %>
                 <li><%= link_to "Пользователи", users_path  %></li>
               <% end %>
-              <li><%= link_to 'Торговые агенты', sales_agents_path %></li>
             </ul>
             <p class="profile">
               <%= current_user.name %>
