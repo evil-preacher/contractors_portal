@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @users = current_user.company.users.where(admin: false)
   end
 
+  def sales_agents
+    @users = current_user.company.users.where(sales_agent: true)
+  end
+
   def new
     @user = User.new
   end

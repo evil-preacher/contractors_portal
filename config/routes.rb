@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :path_prefix => 'my'
 
   resources :users
+  get 'sales_agents', to: 'users#sales_agents'
   resources  :companies
   resources :shops, only: :index
   resources :sales_agents
