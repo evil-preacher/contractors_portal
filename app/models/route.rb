@@ -1,8 +1,9 @@
 class Route < ApplicationRecord
   belongs_to :company
+  belongs_to :user
+  belongs_to :shop
 
-  validates :sale_agent_asc, presence: true
-  validates :shop_asc, presence: true
-  validates :day, presence: true, numericality: true
-  validates :index_number, presence: true, numericality: true
+  validates :shop_id, presence: true
+  validates :user_id, presence: true
+  validates :day, presence: true
 end

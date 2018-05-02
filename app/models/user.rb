@@ -4,6 +4,7 @@ class User < ApplicationRecord
          :confirmable
 
   belongs_to :company, optional: true
+  has_many   :routes
 
   validates :name, presence: true
 
