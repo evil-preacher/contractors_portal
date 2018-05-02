@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :brands, only: :index
   resources :load_events, only: [:index, :show, :new, :create]
   resources :remainders, only: :index
+  resources :routes
   resources :searches
   resources :order_headers
   resources :order_tables
