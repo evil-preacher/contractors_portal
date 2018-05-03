@@ -3,12 +3,12 @@
   <form>
     <div class="form-group">
       <%= f.label :user_id, "Торговый агент" %><br />
-      <%= f.collection_select :user_id, current_user.company.users.where(sales_agent: true), :id, :name, class: "form-control chosen-select" %>
+      <%= f.collection_select :user_id, current_user.company.users.where(sales_agent: true), :id, :name, {}, class: "form-control chosen-select" %>
     </div>
 
     <div class="form-group">
       <%= f.label :shop_id, "Контрагент" %><br />
-      <%= f.collection_select :shop_id, current_user.company.shops, :id, :title, class: "form-control chosen-select" %>
+      <%= f.collection_select :shop_id, current_user.company.shops, :id, :title, {}, class: "form-control chosen-select" %>
     </div>
 
     <div class="form-group">
@@ -18,7 +18,7 @@
 
     <div class="form-group">
       <%= f.label :day_id, "День недели" %><br />
-      <%= f.collection_select :day_id, Day.all, :id, :title, class: "form-control" %>
+      <%= f.collection_select :day_id, Day.all, :id, :title, {}, class: "form-control chosen-select" %>
     </div>
 
     <div class="actions">
