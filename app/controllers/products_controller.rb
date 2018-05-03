@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: :show
 
   def index
-    @products = current_user.company.products
+    @products = current_user.company.products.paginate(page: params[:page], per_page: 15)
   end
 
   def show; end

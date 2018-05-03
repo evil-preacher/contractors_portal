@@ -1,9 +1,7 @@
 class BrandsController < ApplicationController
   authorize_resource
 
-  before_action :set_brand, except: [:index, :new, :create]
-
   def index
-    @brands = current_user.company.brands
+    @brands = current_user.company.brands.paginate(page: params[:page], per_page: 15)
   end
 end

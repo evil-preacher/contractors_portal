@@ -2,7 +2,7 @@ class RoutesController < ApplicationController
   authorize_resource
 
   def index
-    @routes = current_user.company.routes.paginate(page: params[:page], per_page: 20)
+    @routes = current_user.company.routes.paginate(page: params[:page], per_page: 15)
   end
 
   def new

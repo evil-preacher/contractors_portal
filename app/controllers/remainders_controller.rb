@@ -2,7 +2,7 @@ class RemaindersController < ApplicationController
   authorize_resource
 
   def index
-    @remainders = current_user.company.remainders
+    @remainders = current_user.company.remainders.paginate(page: params[:page], per_page: 15)
   end
 
   # ПЕРЕНЕСТИ В  API

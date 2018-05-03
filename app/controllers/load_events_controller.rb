@@ -4,7 +4,7 @@ class LoadEventsController < ApplicationController
   before_action :set_load_event, only: :show
 
   def index
-    @load_events = current_user.company.load_events
+    @load_events = current_user.company.load_events.paginate(page: params[:page], per_page: 15)
   end
 
   def show; end
