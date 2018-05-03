@@ -1,6 +1,4 @@
 ru:
   common:
     errors: "При заполнении формы возникли ошибки:"
-  will_paginate:
-    previous_label: '&larr; Туда'
-    next_label: 'Сюда &rarr;'
+
