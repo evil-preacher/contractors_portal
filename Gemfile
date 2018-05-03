@@ -24,6 +24,7 @@ gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
+gem 'chosen-rails'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'

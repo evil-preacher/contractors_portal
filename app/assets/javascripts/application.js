@@ -13,5 +13,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
+//= require chosen-jquery
+//= require scaffold
 //= require twitter/bootstrap
 //= require_tree .
