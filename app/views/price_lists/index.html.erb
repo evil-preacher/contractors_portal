@@ -1,5 +1,5 @@
 <h1><i class="fa fa-money" aria-hidden="true"></i> Цены</h1>
-<table class="table">
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Тип цен</th>
@@ -12,6 +12,6 @@
     <%= render @price_lists %>
   </tbody>
 </table>
-<%= will_paginate @price_lists %>
+<%= will_paginate @price_lists, renderer: BootstrapPagination::Rails %>
 <br>
 <%= link_to "Домой", root_path %>

@@ -10,6 +10,7 @@
     <%= render @users %>
   </tbody>
 </table>
+<%= will_paginate @users, renderer: BootstrapPagination::Rails %>
 <br>
 <%= link_to "Домой", root_path %>
 <br>

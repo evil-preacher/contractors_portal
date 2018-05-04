@@ -1,5 +1,5 @@
 <h1><i class="fa fa-users" aria-hidden="true"></i> Пользователи</h1>
-<table class="table">
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Имя</th>
@@ -12,7 +12,7 @@
   </tbody>
 </table>
 
-<%= will_paginate @users %>
+<%= will_paginate @users, renderer: BootstrapPagination::Rails %>
 <br>
 <%= link_to "Домой", root_path %>
 <br>
