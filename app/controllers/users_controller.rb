@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :destroy]
 
   def index
-    @users = current_user.company.users.where(admin: false)
+    @users = current_user.company.users.where(admin: false).paginate(page: params[:page], per_page: 15)
   end
 
   def sales_agents
