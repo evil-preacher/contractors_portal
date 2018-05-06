@@ -1,4 +1,8 @@
 <tr>
-  <td><%= current_user.company.products.where(asc: remainder.product_asc).first.title %></td>
+  <% if current_user.company.products.where(asc: remainder.product_asc).present? %>
+    <td><%= current_user.company.products.where(asc: remainder.product_asc).first.title %></td>
+  <% else %>
+    <td>Товар отсутствует</td>
+  <% end %>
   <td><%= remainder.remainder %></td>
 </tr>
