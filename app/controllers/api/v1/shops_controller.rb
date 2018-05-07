@@ -1,6 +1,6 @@
 class Api::V1::ShopsController < Api::V1::BaseController
   def create
-    Shop.where(company_id: current_user.company.id).delete_all
+    Shop.where(company_id: current_user.company.id).destroy_all
     @wrong_objects = []
     params["shops"].each do |key, value|
       if value[:asc] && value[:title]
