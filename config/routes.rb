@@ -34,7 +34,7 @@ Rails.application.routes.draw do
       post 'remainders/create', to: 'remainders#create'
       post 'products/create', to: 'products#create'
       post 'orders/create', to: 'order_headers#create'
-      patch 'orders/mark_order', to: 'order_headers#mark_order'
+      post 'orders/mark_order', to: 'order_headers#mark_order'
       get  'orders/index', to: 'order_headers#index'
       post 'routes/create', to: 'routes#create'
       get  'routes/index', to: 'routes#index'
