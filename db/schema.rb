@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502123617) do
+ActiveRecord::Schema.define(version: 20180507064524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20180502123617) do
     t.decimal "sum", default: "0.0"
     t.boolean "with_docs", default: false
     t.string "wtf_code"
-    t.string "imei", limit: 20, null: false
+    t.string "imei"
     t.bigint "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
