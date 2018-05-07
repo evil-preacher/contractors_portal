@@ -1,7 +1,11 @@
 <% @order_table.each do |order_table| %>
   <tr>
-    <td>Наименование: <%= order_table.product.title %></td>
-    <td>Цена: <%= order_table.price_list.price %></td>
+    <% if current_user.company.products.where(asc: order_table.product_asc).present? %>
+      <td>Наименование: <%= current_user.company.products.where(asc: order_table.product_asc).first.title %></td>
+    <% else %>
+      <td>Пропал товар, нашедшему вернуть</td>
+    <% end %>
+    <td>Цена: <%= order_table.price %></td>
     <td>Количество: <%= order_table.count %></td>
     <td>Сумма: <%= order_table.cost %></td>
   </tr>
