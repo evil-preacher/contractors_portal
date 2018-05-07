@@ -4,6 +4,6 @@ class OrderHeader < ApplicationRecord
 
   accepts_nested_attributes_for :order_tables
 
-  validates :imei, presence: true, length: { is: 15 }
+  # validates :imei, presence: true, length: { is: 15 }
   validates :shop_asc, presence: true
 end
