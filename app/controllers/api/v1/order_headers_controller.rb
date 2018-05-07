@@ -43,7 +43,7 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
                                         :order_tables_attributes => [
                                                                 :id,
                                                                 :product_asc,
-                                                                :price_list_id,
+                                                                :price,
                                                                 :count,
                                                                 :cost,
                                                                 :_destroy] )
