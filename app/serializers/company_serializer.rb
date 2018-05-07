@@ -8,5 +8,4 @@ class CompanySerializer < ActiveModel::Serializer
   has_many :remainders
   has_many :shops
   has_many :products
-  has_many :routes
 end
