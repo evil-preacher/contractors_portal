@@ -7,9 +7,14 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
 
   def create
     params["orders"].each do |key, value|
-      @order_header = current_user.company.order_headers.create(order_params(value))
+      if current_user.company.order_headers.where("wtf_code = ? AND loaded = ?", value[:wtf_code], false).present?
+        @order_header = current_user.company.order_headers.where("wtf_code = ? AND loaded = ?", value[:wtf_code], false).first
+        @order_header.update(order_params(value))
+      else
+        @order_header = current_user.company.order_headers.create(order_params(value))
+      end
     end
-    if @order_header.save
+    if @order_header.save || @order_header.update
       render json: {success: 'Заявки загружены'}, status: :created
     else
       render json: {failed: 'Заявки не загружены'}, status: :unprocessable_entity

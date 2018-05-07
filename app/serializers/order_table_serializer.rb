@@ -1,3 +1,3 @@
 class OrderTableSerializer < ActiveModel::Serializer
-  attributes :product_asc, :price_list_id, :count, :cost
+  attributes :product_asc, :price, :count, :cost
 end
