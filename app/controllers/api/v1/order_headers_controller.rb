@@ -7,6 +7,7 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
     params["orders"].each do |key, value|
       if current_user.company.order_headers.where("wtf_code = ? AND loaded = ?", value[:wtf_code], false).present?
         @order_header = current_user.company.order_headers.where("wtf_code = ? AND loaded = ?", value[:wtf_code], false).first
+        @order_header.order_tables.delete_all
         @order_header.update(order_params(value))
       else
         @order_header = current_user.company.order_headers.create(order_params(value))
