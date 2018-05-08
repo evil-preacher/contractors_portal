@@ -10,8 +10,9 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
         @order_header.order_tables.delete_all
         @order_header.update(order_params(value))
       else
-        @order_header = current_user.company.order_headers.create(order_params(value))
+        @order_header = current_user.company.order_headers.new(order_params(value))
         @order_header.email = current_user.email
+        @order_header.create
       end
     end
     if @order_header.save || @order_header.update
