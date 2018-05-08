@@ -58,6 +58,6 @@ class OrderHeadersController < ApplicationController
     params.require(:order_header).permit(:accounting_system_code, :loaded,
                                          :current_date, :delivery_date, :shop_id,
                                          :comment, :sum, :with_docs, :wtf_code,
-                                         :imei, :company_id)
+                                         :email, :company_id)
   end
 end

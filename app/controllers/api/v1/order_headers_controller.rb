@@ -11,6 +11,7 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
         @order_header.update(order_params(value))
       else
         @order_header = current_user.company.order_headers.create(order_params(value))
+        @order_header.email = current_user.email
       end
     end
     if @order_header.save || @order_header.update
@@ -41,7 +42,7 @@ class Api::V1::OrderHeadersController < Api::V1::BaseController
                                         :sum,
                                         :with_docs,
                                         :wtf_code,
-                                        :imei,
+                                        :email,
                                         :latitude,
                                         :longitude,
                                         :order_tables_attributes => [

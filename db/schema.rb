@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507072345) do
+ActiveRecord::Schema.define(version: 20180508111305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,13 +73,13 @@ ActiveRecord::Schema.define(version: 20180507072345) do
     t.decimal "sum", default: "0.0"
     t.boolean "with_docs", default: false
     t.string "wtf_code"
-    t.string "imei"
     t.bigint "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "shop_asc"
     t.decimal "latitude"
     t.decimal "longitude"
+    t.string "email"
     t.index ["company_id"], name: "index_order_headers_on_company_id"
   end
 
