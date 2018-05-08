@@ -1,8 +1,12 @@
 <tr>
+  <td><%= order_header.id %></td>
+  <td><%= order_header.wtf_code %></td>
+  <td><%= current_user.company.users.where(email: order_header.email).name %></td>
   <td><%= current_user.company.shops.where(asc: order_header.shop_asc).first.title %></td>
   <td><%= order_header.sum %></td>
   <td><%= order_header.current_date.to_date %></td>
   <td><%= order_header.delivery_date.to_date %></td>
+  <td><%= order_header.loaded %></td>
 
   <td>
     <div class="btn-group btn-group-xs" role="group" aria-label="...">
