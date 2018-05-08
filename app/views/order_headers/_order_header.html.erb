@@ -10,7 +10,11 @@
   <td><%= order_header.sum %></td>
   <td><%= order_header.current_date.to_date %></td>
   <td><%= order_header.delivery_date.to_date %></td>
-  <td><%= order_header.loaded %></td>
+  <% if order_header.loaded %>
+    <td>да</td>
+  <% else %>
+    <td>нет</td>
+  <% end %>
 
   <td>
     <div class="btn-group btn-group-xs" role="group" aria-label="...">
