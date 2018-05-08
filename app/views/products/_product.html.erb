@@ -8,5 +8,9 @@
   <% else %>
     <td>--</td>
   <% end %>
-  <td><%= current_user.company.remainders.where(product_asc: product.asc).first.remainder if current_user.company.remainders.where(product_asc: product.asc) %></td>
+  <% if current_user.company.remainders.where(product_asc: product.asc).present? %>
+    <td><%= current_user.company.remainders.where(product_asc: product.asc).first.remainder %></td>
+  <% else %>
+    <td>--</td>
+  <% end %>
 </tr>
