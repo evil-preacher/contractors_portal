@@ -3,4 +3,9 @@
   <td><%= route.day.title %></td>
   <td><%= route.shop.title %></td>
   <td><%= route.index_number %></td>
+  <td>
+      <div class="btn-group btn-group-xs" role="group" aria-label="...">
+        <%= link_to 'Удалить', route, method: :delete, data: { confirm: 'Вы уверены?'}, class: "btn btn-default" %>
+      </div>
+    </td>
 </tr>

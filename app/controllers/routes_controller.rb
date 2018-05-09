@@ -1,6 +1,8 @@
 class RoutesController < ApplicationController
   authorize_resource
 
+  before_action :set_route, only: [:destroy]
+
   def index
     @routes = current_user.company.routes.paginate(page: params[:page], per_page: 15)
   end
@@ -19,7 +21,16 @@ class RoutesController < ApplicationController
     end
   end
 
+  def destroy
+    @route.destroy
+    redirect_to routes_path
+  end
+
   private
+
+  def set_route
+    @route = Route.find(params[:id])
+  end
 
   def routes_params
     params.require(:route).permit(:day_id,
