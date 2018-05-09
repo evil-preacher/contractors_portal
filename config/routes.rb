@@ -15,8 +15,7 @@ Rails.application.routes.draw do
   resources :remainders, only: :index
   resources :routes
   resources :searches
-  resources :order_headers
-  resources :order_tables
+  resources :order_headers, only: [:index, :show]
   get 'home' => 'home#show'
 
   namespace :api do
