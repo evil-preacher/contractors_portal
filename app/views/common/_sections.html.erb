@@ -8,7 +8,9 @@
     <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul>
             <li><a href="/categories" class="btn btn-lg btn-block unit"><i class="fa fa-folder-open" aria-hidden="true"></i> Классификатор</a></li>
-            <li><a href="/brands" class="btn btn-lg btn-block unit"><i class="fa fa-language" aria-hidden="true"></i> Бренды</a></li>
+            <% if current_user.company.brands.present? %>
+                <li><a href="/brands" class="btn btn-lg btn-block unit"><i class="fa fa-language" aria-hidden="true"></i> Бренды</a></li>
+            <% end %>
             <li><a href="/products" class="btn btn-lg btn-block unit"><i class="fa fa-gift" aria-hidden="true"></i> Товары</a></li>
             <li><a href="/remainders" class="btn btn-lg btn-block unit"><i class="fa fa-cubes" aria-hidden="true"></i> Остатки</a></li>
             <li><a href="/shops" class="btn btn-lg btn-block unit"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Магазины</a></li>
