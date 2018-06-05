@@ -12,6 +12,5 @@
 </table>
 <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
 <br>
-<%= link_to "Домой", root_path %>
-<br>
-<%= link_to "Создать пользователя", new_user_path %>
+<%= link_to "Домой", root_path, class: 'btn btn-default btn-large' %>
+<%= link_to "Создать пользователя", new_user_path, class: 'btn btn-primary btn-large' %>

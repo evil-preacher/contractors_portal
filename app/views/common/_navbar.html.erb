@@ -9,20 +9,13 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
-              <% if current_user.company.nil? %>
-                <li><%= link_to "Создать профиль компании", new_company_path %></li>
-              <% else %>
-                <li><%= link_to 'Профиль компании', company_path(current_user.company) %></li>
-              <% end %>
-              <% if can? :manage, User %>
-                <li><%= link_to "Пользователи", users_path  %></li>
-              <% end %>
+              
             </ul>
             <p class="profile">
               <%= current_user.name %>
 
-
-              <a href="my/users/sign_out", data-method="delete"><i class="fa fa-sign-out" aria-hidden="true"></i> Выход</a>
+              <%= link_to '<i class="fa fa-sign-out" aria-hidden="true"></i> Выход'.html_safe, destroy_user_session_path, method: :delete %>
+              <!-- <a href="my/users/sign_out", data-method="delete"><i class="fa fa-sign-out" aria-hidden="true"></i> Выход</a> -->
             </p>
 
 

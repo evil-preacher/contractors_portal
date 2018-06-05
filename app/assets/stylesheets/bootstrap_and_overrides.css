@@ -125,6 +125,10 @@ i {
   border-bottom: 2px solid #dcdcdc;
 }
 
+form {
+  margin-bottom: 1em;
+}
+
 @media screen and (max-width: 765px) {
   .section {
     min-height: 0;

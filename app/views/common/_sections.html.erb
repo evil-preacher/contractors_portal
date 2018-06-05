@@ -7,6 +7,15 @@
     </button>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul>
+          <% if current_user.company.nil? %>
+            <li><%= link_to '<i class="fa fa-building-o" aria-hidden="true"></i> Создать профиль компании'.html_safe, new_company_path, class: "btn btn-lg btn-block unit" %></li>
+          <% else %>
+            <li><%= link_to '<i class="fa fa-building-o" aria-hidden="true"></i> Профиль компании'.html_safe, company_path(current_user.company), class: "btn btn-lg btn-block unit" %></li>
+          <% end %>
+          <% if can? :manage, User %>
+            <li><a href="/users" class="btn btn-lg btn-block unit"><i class="fa fa-users" aria-hidden="true"></i> Пользователи</a></li>
+          <% end %>
+          <hr>
             <li><a href="/categories" class="btn btn-lg btn-block unit"><i class="fa fa-folder-open" aria-hidden="true"></i> Классификатор</a></li>
             <% if current_user.company.present? %>
                 <% if current_user.company.brands.present? %>
