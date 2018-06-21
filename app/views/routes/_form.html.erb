@@ -8,7 +8,7 @@
 
     <div class="form-group">
       <%= f.label :shop_id, "Контрагент" %><br />
-      <%= f.collection_select :shop_id, current_user.company.shops, :id, :title, {}, class: "form-control chosen-select" %>
+      <%= f.collection_select :shop_id, current_user.company.shops.includes(:routes).where(routes: { shop_id: nil }), :id, :title, {}, class: "form-control chosen-select" %>
     </div>
 
     <div class="form-group">
@@ -26,4 +26,3 @@
     </div>
   </form>
 <% end %>
-
