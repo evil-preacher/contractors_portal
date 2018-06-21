@@ -42,5 +42,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'order_headers#index'
+  root 'home#show'
 end
