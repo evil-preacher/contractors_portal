@@ -129,6 +129,14 @@ form {
   margin-bottom: 1em;
 }
 
+.dashboard {
+  text-align: center;
+}
+
+.dashboard .panel-body {
+  font-size: 2em;
+}
+
 @media screen and (max-width: 765px) {
   .section {
     min-height: 0;

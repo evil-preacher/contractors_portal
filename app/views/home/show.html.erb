@@ -1,1 +1,70 @@
+<div class="row dashboard">
+  <h3>Всего в системе</h3>
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4>Товарных групп</h4>
+      </div>
+      <div class="panel-body">
+        <%= @categories %>
+      </div>
+    </div>
+  </div>
 
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4>Товаров</h4>
+      </div>
+      <div class="panel-body">
+        <%= @products %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4>Контрагентов</h4>
+      </div>
+      <div class="panel-body">
+        <%= @shops %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row dashboard">
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4>Торговых агентов</h4>
+      </div>
+      <div class="panel-body">
+        <%= @users %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4>Заявок</h4>
+      </div>
+      <div class="panel-body">
+        <%= @orders %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4>Заявок, загруженных в 1С</h4>
+      </div>
+      <div class="panel-body">
+        <%= @orders_loaded %>
+      </div>
+    </div>
+  </div>
+</div>
