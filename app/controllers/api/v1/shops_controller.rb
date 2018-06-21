@@ -33,6 +33,7 @@ class Api::V1::ShopsController < Api::V1::BaseController
                      :address,
                      :latitude,
                      :longitude,
+                     :price_type_asc,
                      :company_id)
   end
 end
