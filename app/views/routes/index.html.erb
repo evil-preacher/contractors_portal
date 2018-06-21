@@ -1,5 +1,16 @@
 <h1><i class="fa fa-retweet" aria-hidden="true"></i> Маршруты</h1>
 
+<div class="progress" style="height: 20px;">
+  <div
+    class="progress-bar progress-bar-striped progress-bar-warning"
+    role="progressbar"
+    aria-valuenow="<%= 100 / current_user.company.shops.count * current_user.company.shops.includes(:routes).where.not(routes: { shop_id: nil }).count %>"
+    aria-valuemax="100"
+    style="width: <%= 100 / current_user.company.shops.count * current_user.company.shops.includes(:routes).where.not(routes: { shop_id: nil }).count %>%"
+    >
+    <%= 100 / current_user.company.shops.count * current_user.company.shops.includes(:routes).where.not(routes: { shop_id: nil }).count %>%
+  </div>
+</div>
 <table class="table table-striped table-bordered">
   <thead>
     <tr>
